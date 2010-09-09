@@ -1,50 +1,46 @@
 name = jBase
-description = Drupal base theme for custom theming projects
-version = 1.0
-core = 6.x
+description = Base theme for custom projects
+version = 7x.0.01
+core = 7.x
 engine = phptemplate
 
+
 ; Stylesheets
-;stylesheets[all][] = css/fonts.css
 stylesheets[all][] = css/style.css
 stylesheets[all][] = css/dblog.css
 stylesheets[print][] = css/print.css
 
+
 ; Scripts
 ;scripts[] = js/script.js
 
-; Cufon
-;scripts[] = type/cufon/cufon-yui.js
-;scripts[] = type/cufon/FONT_font.js ;TODO: use Cufon font generator for font.js
-;scripts[] = type/cufon/theme_name.cufon.js
-
-; Panels
-;plugins[panels][layouts] = panels/layouts
-;plugins[panels][styles] = panels/styles
 
 ; Regions
-regions[banner] = banner
-regions[header_top] = header top
-regions[header_first] = header first
-regions[header_middle] = header middle
-regions[header_last] = header last
-regions[header_bottom] = header bottom
-regions[preface_first] = preface first
-regions[preface_middle] = preface middle
-regions[preface_last] = preface last
-regions[sidebar_first] = sidebar first
-regions[sidebar_last] = sidebar last
-regions[content_top] = content top
-regions[content] = content
-regions[content_bottom] = content bottom
-regions[postscript_first] = postscript first
-regions[postscript_middle] = postscript middle
-regions[postscript_last] = postscript last
-regions[footer_top] = footer top
-regions[footer_first] = footer first
-regions[footer_middle] = footer middle
-regions[footer_last] = footer last
-regions[footer_bottom] = footer bottom
+regions[banner] = Banner
+regions[header_top] = Header top
+regions[header_first] = Header first
+regions[header_second] = Header second
+regions[header_third] = Header third
+regions[header_bottom] = Header bottom
+regions[sidebar_first]  = Sidebar first
+regions[sidebar_second] = Sidebar second
+regions[highlight] = Highlighted content
+regions[help] = Help
+regions[page_top] = Page top
+regions[page_bottom] = Page bottom
+regions[preface_first] = Preface first
+regions[preface_second] = Preface second
+regions[preface_third] = Preface third
+regions[content] = Content
+regions[postscript_first] = Postscript first
+regions[postscript_second] = Postscript second
+regions[postscript_third] = Postscript third
+regions[footer_top] = Footer top
+regions[footer_first] = Footer first
+regions[footer_second] = Footer second
+regions[footer_third] = Footer third
+regions[footer_bottom] = Footer bottom
+
 
 ; Features
 features[] = logo
@@ -55,5 +51,11 @@ features[] = node_user_picture
 features[] = comment_user_picture
 features[] = search
 features[] = favicon
-features[] = primary_links
-features[] = secondary_links
+features[] = main_menu
+features[] = secondary_menu
+
+
+; Cufon
+;scripts[] = type/cufon/cufon-yui.js
+;scripts[] = type/cufon/FONT_font.js ;TODO: use Cufon font generator for font.js
+;scripts[] = type/cufon/theme_name.cufon.js

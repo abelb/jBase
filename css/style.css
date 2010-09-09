@@ -196,8 +196,14 @@ dd {
   margin: 0 0 10px 22px;
 }
 
-#content-wrapper ul.tips li {
+/* remove bullets for certian lists items */
+ul.contextual-links li,
+#content-wrapper ul.tips li,
+ul.operations li {
   background: transparent;
+}
+
+#content-wrapper ul.tips li {
   font-size: 1em;
   list-style: disc;
   list-style-image: none;
@@ -295,7 +301,6 @@ div.content th img {
 /* Banner Region
 -------------------------------------------------------------- */
 #banner {
-
 }
 
 
@@ -318,8 +323,8 @@ div.content th img {
 }
 
 #header-first,
-#header-middle,
-#header-last {
+#header-second,
+#header-third {
   float: left;
   width: 326px;
 }
@@ -343,10 +348,10 @@ div.content th img {
   margin: 10px 0 20px;
 }
 
-#header-middle {
+#header-second {
 }
 
-#header-last {
+#header-third {
 }
 
 #header-bottom {
@@ -367,10 +372,10 @@ div.content th img {
 #preface-wrapper #preface-first {
 }
 
-#preface-wrapper #preface-middle {
+#preface-wrapper #preface-second {
 }
 
-#preface-wrapper #preface-last {
+#preface-wrapper #preface-third {
 }
 
 
@@ -405,7 +410,7 @@ div.content th img {
   float: left;
 }
 
-#sidebar-last {
+#sidebar-second {
   float: right;
 }
 
@@ -445,10 +450,10 @@ div.content th img {
 #postscript-wrapper #postscript-first {
 }
 
-#postscript-wrapper #postscript-middle {
+#postscript-wrapper #postscript-second {
 }
 
-#postscript-wrapper #postscript-last {
+#postscript-wrapper #postscript-third {
 }
 
 
@@ -481,10 +486,10 @@ div.content th img {
 #footer-wrapper #footer-first {
 }
 
-#footer-wrapper #footer-middle {
+#footer-wrapper #footer-second {
 }
 
-#footer-wrapper #footer-last {
+#footer-wrapper #footer-third {
 }
 
 #footer-bottom {
@@ -506,14 +511,6 @@ div.content th img {
 #footer-wrapper.footers-3 .column {
   float: left;
   width: 33.3%;
-}
-
-
-/* Footer message
--------------------------------------------------------------- */
-#footer-message {
-  margin-bottom: 30px;
-  overflow: hidden;
 }
 
 
@@ -540,12 +537,12 @@ body.layout-first-main #content-wrapper {
 
 /* Two Column Layout - Main Content:Sidebar
 -------------------------------------------------------------- */
-body.layout-main-last #content-wrapper {
+body.layout-main-second #content-wrapper {
   margin: 0 20px 0 0;
   width: 635px;
 }
 
-body.layout-main-last #sidebar-last {
+body.layout-main-second #sidebar-second {
   margin: 0;
   width: 325px;
 }
@@ -553,19 +550,19 @@ body.layout-main-last #sidebar-last {
 
 /* Three Column Layout - Sidebar:Main Content:Sidebar
 -------------------------------------------------------------- */
-body.layout-first-main-last #sidebar-first {
+body.layout-first-main-second #sidebar-first {
   margin: 0 20px 0 0;
   width: 225px;
 }
 
-body.layout-first-main-last #content-wrapper {
+body.layout-first-main-second #content-wrapper {
   margin: 0 20px 0 0;
   position: relative;
   width: 390px;
   z-index: 1;                    /* keep content visible on admin pages */
 }
 
-body.layout-first-main-last #sidebar-last {
+body.layout-first-main-second #sidebar-second {
   margin: 0;
   width: 325px;
 }
@@ -573,6 +570,9 @@ body.layout-first-main-last #sidebar-last {
 
 /* Nodes
 -------------------------------------------------------------- */
+#main {
+}  
+
 div.node {
   margin: 0 0 20px 0;
 }
@@ -643,8 +643,8 @@ div.node .comment_forbidden a {
 }
 
 .preview .node {
-  background-color: #FFFFDD;
-  border: 1px solid #ccc;
+  background-color: #FFFFE8;
+  border: 1px solid #E8E8CC;
   padding: 10px;
 }
 
@@ -674,6 +674,35 @@ div.node .comment_forbidden a {
 }
 
 
+/* Blockquotes
+-------------------------------------------------------------- */
+.content blockquote p {
+  font-style: italic;
+  margin: 0;
+  padding: 8px 20px;
+}
+
+blockquote {
+  background: url('../images/close-quote.gif') no-repeat right bottom;
+  color: #5A6A78;
+  margin: 10px 0;
+}
+
+blockquote p:first-child {
+  background: url('../images/open-quote.gif') no-repeat left top;
+  padding: 0 0 0 20px;
+}
+
+blockquote * > :first-child {
+  background: transparent;
+  padding: 0;
+}
+
+blockquote a:link {
+  text-decoration: underline;
+}
+
+
 /* Blocks
 -------------------------------------------------------------- */
 /* for region labels on block admin page */
@@ -693,11 +722,8 @@ div.block-region {
   font-size: 1.333em;
 }
 
-div.block-wrapper {    /* spacing between blocks */
+div.block-wrapper {                    /* spacing between blocks */
   margin: 0 0 20px;
-}
-
-div.block-inner {    /* wrapper around title and content */
 }
 
 div.block .title {
@@ -706,7 +732,7 @@ div.block .title {
 div.block .content {
 }
 
-div.block .submitted {
+div.block .submitted {                               /* byline styles in blocks */
 }
 
 div.block .submitted a:link {
@@ -740,6 +766,60 @@ div.block #user-login-form {
 }
 
 
+/* Rounded Corners for Blocks (optional)
+-------------------------------------------------------------- */
+div.rounded-block {
+  margin-top: -1px;                               /* use negative margin to overlap stacked blocks */
+}
+
+p.rounded-topspace {
+  margin-top: 0;                                  /* removes unwanted space */
+}
+
+p.rounded-bottomspace {
+  margin-bottom: 0;                               /* removes unwanted space */
+}
+
+div.rounded-block-top-left, 
+div.rounded-block-top-right, 
+div.rounded-block-bottom-left, 
+div.rounded-block-bottom-right { 
+  background-image: none;                         /* combined rounded corner image */
+  font-size: 2px;                                 /* IE div correction */
+  height: 11px;                                   /* height of an image corner */
+}
+
+div.rounded-block-top-left, 
+div.rounded-block-bottom-left { 
+  margin-right: 11px;                             /* width of an image corner */
+}
+
+div.rounded-block-top-right {                        /* anchor image in top right */
+  background-position: 100% 0;
+}
+
+div.rounded-block-top-right,
+div.rounded-block-bottom-right { 
+  margin-left: 11px;                              /* width of an image corner */
+  margin-top: -11px;                              /* height of an image corner */
+}
+
+div.rounded-block-bottom-left  { 
+  background-position: 0 -11px;                   /* negative height of an image corner */
+}
+
+div.rounded-block-bottom-right { 
+  background-position: 100% -11px;                /* negative height of an image corner */
+}
+
+div.rounded-inside {
+  border-left: 0;                                 /* left inside border color & width */
+  border-right: 0;                                /* right inside border color & width */
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+
 /* Block editing - configure & edit menu links for blocks
 -------------------------------------------------------------- */
 div.block.block-editing {
@@ -748,22 +828,14 @@ div.block.block-editing {
 
 div.block.block-editing div.edit {
   background-color: #fff;
-  box-shadow: 4px 4px 6px #888;
-  color: #000;
-  border: 1px solid #ccc;
+  border: 1px solid #eee;
   display: none;
   font-size: 9px;
-  padding: 0 4px;
+  padding: 0 2px;
   position: absolute;
   right: 0;
   top: 0;
   z-index: 40;
- -moz-box-shadow: 4px 4px 8px #888;
- -webkit-box-shadow: 4px 4px 6px #888;
-}
-
-div.block.block-editing div.edit a {
-  color: #000 !important;
 }
 
 div.block.block-editing:hover div.edit {
@@ -773,6 +845,7 @@ div.block.block-editing:hover div.edit {
 
 /* User Login Block - Open ID
 -------------------------------------------------------------- */
+
 /* adjust openid link */
 /* note: display set in openid.js */
 html.js #user-login-form li.openid-processed, 
@@ -786,26 +859,17 @@ html.js #user-login li.openid-processed {
 
 /* Primary Menu
 -------------------------------------------------------------- */
-#primary-menu {
+#main-menu {                                   /* menu layout */
   display: block;
   padding: 0;
   position: relative;
 }
 
-#primary-menu:after {
-  clear: both;
-  content: ".";
-  display: block;
-  font-size: 0;
-  height: 0;
-  visibility: hidden;
-}
-
-#primary-menu ul.menu {
+#main-menu ul.menu {
   margin: 0;
 }
 
-#primary-menu ul.menu li {
+#main-menu ul.menu li {                        /* top item layout */
   background-image: none;
   display: block;
   float: left;
@@ -815,26 +879,27 @@ html.js #user-login li.openid-processed {
   /*width: 75px;*/
 }
 
-#primary-menu ul.menu li a,
-#primary-menu ul.menu li a:link,
-#primary-menu ul.menu li a:visited {
+#main-menu ul.menu li a,
+#main-menu ul.menu li a:link,
+#main-menu ul.menu li a:visited {
   display: block;
 }
 
-#primary-menu ul.menu li ul {
+#main-menu ul.menu li ul {
   background: #fff;
   border: 1px solid #ddd;
   left: -999em;
   padding: 4px;
   position: absolute;
+  z-index: 100;
 }
   
-#primary-menu ul.menu li:hover ul {
+#main-menu ul.menu li:hover ul {
   display: block;
   left: auto;
 }
   
-#primary-menu ul.menu li ul li {
+#main-menu ul.menu li ul li {
   float: left;
   font-size: 0.857em;
   height: auto;
@@ -843,62 +908,31 @@ html.js #user-login li.openid-processed {
   width: 140px;
 }
   
-#primary-menu ul.menu li ul li a,
-#primary-menu ul.menu li ul li a:link,
-#primary-menu ul.menu li ul li a:visited {
-  /*background: #f7f7f7;*/
+#main-menu ul.menu li ul li a,
+#main-menu ul.menu li ul li a:link,
+#main-menu ul.menu li ul li a:visited {
+  background: #f7f7f7;
   display: block;
   margin: 0;
   padding: 0;
   text-decoration: none;
 }
 
-#primary-menu ul.menu li ul li a:hover,
-#primary-menu ul.menu li ul li a:active,
-#primary-menu ul.menu li ul li a.active {
-  /*background: #f0f0f0;*/
+#main-menu ul.menu li ul li a:hover,
+#main-menu ul.menu li ul li a:active,
+#main-menu ul.menu li ul li a.active {
+  background: #f0f0f0;
 }
 
 
 /* Secondary menu
 -------------------------------------------------------------*/
 #secondary-menu {
-  margin-bottom: 10px;
-  text-align: right;
 }
 
 #secondary-menu ul.links li {
   background-image: none;
   padding: 0 8px 0 0;
-}
-
-
-/* Blockquotes
--------------------------------------------------------------- */
-.content blockquote p {
-  font-style: italic;
-  margin: 0;
-  padding: 8px 20px;
-}
-
-blockquote {
-  background: url('../images/close-quote.gif') no-repeat right bottom;
-  color: #5A6A78;
-  margin: 10px 0;
-}
-
-blockquote p:first-child {
-  background: url('../images/open-quote.gif') no-repeat left top;
-  padding: 0 0 0 20px;
-}
-
-blockquote * > :first-child {
-  background: transparent;
-  padding: 0;
-}
-
-blockquote a:link {
-  text-decoration: underline;
 }
 
 
@@ -934,7 +968,7 @@ div.messages a:active,
 
 div.messages,
 div.messages.status {
-  background-color: #EAF8E4;
+  background: #EAF8E4;
   border: 6px solid #8DC478;
   color: #3E642F;
   font-weight: 600;
@@ -967,7 +1001,7 @@ div.error {
   color: #B20000;
 }
 
-.help {
+div.region-help {
   background-color: #E4EEF8;
   border: 6px solid #57718A;
   color: #292929;
@@ -977,7 +1011,9 @@ div.error {
   overflow: hidden;
   padding: 10px 16px;
 }
-
+div.region-help div.block-wrapper {
+  margin: 0;
+}
 
 /* Tabs
 -------------------------------------------------------------------*/
@@ -1134,7 +1170,7 @@ textarea, select {
 }
 
 /* form-text styles */
-.form-text {
+.form-text {                                      /* default styling for all text fields */
 }
 
 input.form-text {
@@ -1152,12 +1188,12 @@ select:hover {
 input.form-text:focus,
 input.text:focus, input.title:focus,
 textarea:focus, select:focus {
-  border: 1px solid #999;
+  border:1px solid #999;
 }
 
 /* fieldset styles */
 fieldset {
-  background: #F5F5F5;
+  background: #f7f7f7;
   border: 1px solid #ccc;
   margin: 0 0 22px 0;
   padding: 20px;
@@ -1353,12 +1389,21 @@ ul.pager span.pager-ellipsis {
 }
 
 
+/* Footer message
+-------------------------------------------------------------- */
+#footer-message {
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+
+
 /* Admin page(s)
 -------------------------------------------------------------- */
 div.admin {
-  padding-top: 0;
+  padding-top: 0; /* fix alignment of admin panel */
 }
 
+/* keep admin columns from dropping under */
 div.admin .left,
 div.admin .right {
   margin-left: 1%;
@@ -1387,9 +1432,10 @@ div.admin-dependencies,
 div.admin-required {
 }
 
-/* theme listing page */
-#page-admin-build-themes .description em {
-  color: red;
+
+/* Maintenance
+-------------------------------------------------------------- */
+.in-maintenance  {
 }
 
 
@@ -1415,13 +1461,29 @@ div.admin-required {
 }
 
 
+
 /* Modules styles
 -------------------------------------------------------------- */
+
+/* Book navigation
+-------------------------------------------------------------- */
+.book-navigation .menu {
+  border-top: 1px solid #CCC;
+  padding: 1em 0 0 3em;
+}
+
+.book-navigation .page-links {
+  border-top: 1px solid #CCC;
+  border-bottom: 1px solid #CCC;
+  text-align: center;
+  padding: 6px;
+}
+
 
 /* Comments
 -------------------------------------------------------------- */
 div.comment {
-  margin: 14px 0;
+  margin: 15px 0;
   padding: 10px;
 }
 
@@ -1445,6 +1507,12 @@ div.comment .submitted {
 div.comment .comment-name {
 }
 
+div.comment.comment-preview {
+  background-color: #FFFFE8;
+  border: 1px solid #E8E8CC;
+  padding: 10px;
+}
+
 .comment .links li {
   background: none;
   padding: 0 6px 0 0;
@@ -1454,14 +1522,6 @@ div.comment div.links a,
 div.comment ul.links a {
   font-size: 0.9em;
   text-align: right;
-}
-
-#comments div.odd {
-  background-color: #FFF;
-}
-
-#comments div.even {
-  background-color: #EEE;
 }
 
 div.comment .picture {
@@ -1474,6 +1534,96 @@ div.comment .picture {
   margin: 10px 0;
   padding: 0;
 }
+
+
+/* Forums
+-------------------------------------------------------------- */
+#forum .description {
+  font-size: 0.9em;
+  margin: 0.5em;
+}
+
+#forum td.created, 
+#forum td.posts, 
+#forum td.topics, 
+#forum td.last-reply,
+#forum td.replies, 
+#forum td.pager {
+  white-space: nowrap;
+}
+
+#forum td.posts, 
+#forum td.topics, 
+#forum td.replies, 
+#forum td.pager {
+  text-align: center;
+}
+
+.forum-topic-navigation {
+  border-bottom: 1px solid #888;
+  border-top: 1px solid #888;
+  padding: 6px;
+  text-align: center;
+}
+
+.forum-topic-navigation .topic-previous {
+  float: left;
+  text-align: right;
+  width: 46%;
+}
+
+.forum-topic-navigation .topic-next {
+  float: right;
+  text-align: left;
+  width: 46%;
+}
+
+
+/* Panels
+-------------------------------------------------------------- */
+
+
+/* Polls
+-------------------------------------------------------------- */
+/* increase default font size and spacing of poll titles */
+.block-poll .poll div.title {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+div.poll div.bar {                                      /* styles for poll ratings */
+  background-color: #DDD;
+}
+
+div.poll div.bar div.foreground {
+  background-color: #999;
+}
+
+
+/* Profiles
+-------------------------------------------------------------- */
+.profile {
+  clear: none;
+  margin: 12px 0;
+}
+
+.profile h2.title {
+  border-bottom: 1px solid;
+  margin-top: 15px;
+}
+
+.profile dt {
+  float: left;
+  margin-bottom: -10px;
+  padding: 0 5px;
+  text-align: left;
+  width: 185px;
+}
+
+
+/* Search results
+-------------------------------------------------------------- */
 
 
 /* Vertical tabs
@@ -1511,3 +1661,16 @@ div.view div.views-admin-links {
 div.view div.views-admin-links li {
   background: transparent !important;
 }
+
+
+
+
+
+/* TEMP - TODO
+-------------------------------------------------------------- */
+.contextual-links-region-active {
+  background: #F5FAFF;
+  outline: none;
+}
+
+

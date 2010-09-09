@@ -18,21 +18,8 @@ function jBase_preprocess(&$vars) {
 }
 
 
-/**
- * Override or insert variables into the page templates.
- *
- * @param $vars
- *   An array of variables to pass to the theme template.
- */
-function jBase_preprocess_page(&$vars) {
-  global $language, $theme_key;
-  // Remove sidebars if disabled e.g., for Panels
-  if (!$vars['show_blocks']) {
-    $vars['sidebar_first'] = '';
-    $vars['sidebar_last'] = '';
-  }
-  
-  // Give <body> tag a unique id depending on PAGE PATH
+function jBase_preprocess_html(&$vars) {
+  // give <body> tag a unique id depending on PAGE PATH
   $path_alias = strtolower(preg_replace('/[^a-zA-Z0-9-]+/', '-', drupal_get_path_alias($_GET['q'])));
   if ($path_alias == 'node') {
     $vars['body_id'] = 'page-front';
@@ -41,188 +28,69 @@ function jBase_preprocess_page(&$vars) {
     $vars['body_id'] = 'page-'. $path_alias;
   }
   
-  // Build an array of body classes
-  $body_classes = array();
-  $body_classes[] = ($vars['logged_in']) ? 'logged-in' : 'not-logged-in';
-  $body_classes[] = ($vars['is_front']) ? 'front' : 'not-front';
+  // Add to the array of body classes
   if (isset($vars['node'])) {
-    $body_classes[] = ($vars['node']) ? 'full-node' : '';
-    $body_classes[] = (($vars['node']->type == 'forum') || (arg(0) == 'forum')) ? 'forum' : '';
-    $body_classes[] = ($vars['node']->type) ? 'node-type-'. $vars['node']->type : '';
+    $vars['classes_array'][] = ($vars['node']) ? 'full-node' : '';
   }
-  else {
-    $body_classes[] = (arg(0) == 'forum') ? 'forum' : '';
-  }
-  $body_classes[] = (module_exists('panels') && (panels_get_current_page_display())) ? 'panels' : '';
-  $body_classes[] = 'layout-'. (($vars['sidebar_first']) ? 'first-main' : 'main') . (($vars['sidebar_last']) ? '-last' : '');
-  if ($vars['preface_first'] || $vars['preface_middle'] || $vars['preface_last']) {
+  $vars['classes_array'][] = 'layout-'. (isset($vars['page']['sidebar_first']) ? 'first-main' : 'main') . (isset($vars['page']['sidebar_second']) ? '-second' : '');
+  if (isset($vars['page']['preface_first']) || isset($vars['page']['preface_second']) || isset($vars['page']['preface_third'])) {
     $preface_regions = 'preface';
-    $preface_regions .= ($vars['preface_first']) ? '-first' : '';
-    $preface_regions .= ($vars['preface_middle']) ? '-middle' : '';
-    $preface_regions .= ($vars['preface_last']) ? '-last' : '';
-    $body_classes[] = $preface_regions;
+    $preface_regions .= (isset($vars['page']['preface_first'])) ? '-first' : '';
+    $preface_regions .= (isset($vars['page']['preface_second'])) ? '-second' : '';
+    $preface_regions .= (isset($vars['page']['preface_third'])) ? '-third' : '';
+    $vars['classes_array'][] = $preface_regions;
   }
-  if ($vars['postscript_first'] || $vars['postscript_middle'] || $vars['postscript_last']) {
+  if (isset($vars['page']['postscript_first']) || isset($vars['page']['postscript_second']) || isset($vars['page']['postscript_third'])) {
     $postscript_regions = 'postscript';
-    $postscript_regions .= ($vars['postscript_first']) ? '-first' : '';
-    $postscript_regions .= ($vars['postscript_middle']) ? '-middle' : '';
-    $postscript_regions .= ($vars['postscript_last']) ? '-last' : '';
-    $body_classes[] = $postscript_regions;
+    $postscript_regions .= (isset($vars['page']['postscript_first'])) ? '-first' : '';
+    $postscript_regions .= (isset($vars['page']['postscript_second'])) ? '-second' : '';
+    $postscript_regions .= (isset($vars['page']['postscript_third'])) ? '-third' : '';
+    $vars['classes_array'][] = $postscript_regions;
   }
-  $body_classes = array_filter($body_classes);
-  $vars['body_classes'] = implode(' ', $body_classes);
+  if (isset($vars['page']['footer_first'])  || isset($vars['page']['footer_second']) || isset($vars['page']['footer_third'])) {
+    $footer_regions = 'footers';
+    $footer_regions .= (isset($vars['page']['footer_first'])) ? '-first' : '';
+    $footer_regions .= (isset($vars['page']['footer_second'])) ? '-second' : '';
+    $footer_regions .= (isset($vars['page']['footer_third'])) ? '-third' : '';
+    $vars['classes_array'][] = $footer_regions;
+  }
+  
+  $vars['classes_array'] = array_filter($vars['classes_array']);
+  
+  // IE6 & IE7 stylesheets
+  drupal_add_css(path_to_theme() . '/css/ie6-fixes.css', array('weight' => CSS_THEME, 'browsers' => array('IE' => 'IE 6', '!IE' => FALSE), 'preprocess' => FALSE));
+  drupal_add_css(path_to_theme() . '/css/ie7-fixes.css', array('weight' => CSS_THEME, 'browsers' => array('IE' => 'IE 7', '!IE' => FALSE), 'preprocess' => FALSE));
+}
 
-  // Add preface & postscript classes with number of active sub-regions
+
+function jBase_preprocess_page(&$vars) {
+  // Add preface, postscript, & footers classes with number of active sub-regions
   $region_list = array(
-    'prefaces' => array('preface_first', 'preface_middle', 'preface_last'), 
-    'postscripts' => array('postscript_first', 'postscript_middle', 'postscript_last'),
-    'footers' => array('footer_first', 'footer_middle', 'footer_last')
+    'prefaces' => array('preface_first', 'preface_second', 'preface_third'), 
+    'postscripts' => array('postscript_first', 'postscript_second', 'postscript_third'),
+    'footers' => array('footer_first', 'footer_second', 'footer_third')
   );
   foreach ($region_list as $sub_region_key => $sub_region_list) {
     $active_regions = array();
     foreach ($sub_region_list as $region_item) {
-      if (!empty($vars[$region_item])) {
-        $active_regions[] = $region_item;
+      if (!empty($vars['page'][$region_item])) {
+        $active_regions[] = $vars['page'][$region_item];
       }
     }
     $vars[$sub_region_key] = $sub_region_key .'-'. strval(count($active_regions));
   }
   
-  // Generate menu tree from source of primary links
-  $vars['primary_links_tree'] = menu_tree(variable_get('menu_primary_links_source', 'primary-links'));
-
-  // Set IE stylesheets
-  $themes = jBase_theme_paths($theme_key);
-  $vars['setting_styles'] = $vars['ie6_styles'] = $vars['ie7_styles'] = $vars['ie8_styles'];
-  foreach ($themes as $name => $path) {
-    $link = '<link type="text/css" rel="stylesheet" media="all" href="' . base_path() . $path;
-    $vars['ie6_styles'] .= (file_exists($path . '/css/ie6-fixes.css')) ? $link . '/css/ie6-fixes.css" />' . "\n" : '';
-    $vars['ie7_styles'] .= (file_exists($path . '/css/ie7-fixes.css')) ? $link . '/css/ie7-fixes.css" />' . "\n" : '';
-    $vars['ie8_styles'] .= (file_exists($path . '/css/ie8-fixes.css')) ? $link . '/css/ie8-fixes.css" />' . "\n" : '';
-  }  
-  
-  // page-type template suggestion; ex: page-story.tpl.php
-  $template_files = array();
-  foreach ($vars['template_files'] as $file) {
-    $template_files[] = $file;
-    if ($file == 'page-node') {
-      $template_files[] = 'page-'. $vars['node']->type;   
-    }
-  }
-  $vars['template_files'] = $template_files;
+  // Render menu tree from main-menu
+  $menu_tree = menu_tree('main-menu');
+  $vars['main_menu_tree'] = render($menu_tree);
 }
 
 
-/**
- * Override or insert variables into the node templates.
- *
- * @param $vars
- *   An array of variables to pass to the theme template.
- */
-function jBase_preprocess_node(&$vars) {
-  // Build an array of node classes
-  $node_classes = array();
-  $node_classes[] = $vars['zebra'];
-  $node_classes[] = (!$vars['node']->status) ? 'node-unpublished' : '';
-  $node_classes[] = ($vars['sticky']) ? 'sticky' : '';
-  $node_classes[] = (isset($vars['node']->teaser)) ? 'teaser' : 'full-node';
-  $node_classes[] = 'node-type-'. $vars['node']->type;
-  $node_classes = array_filter($node_classes);
-  $vars['node_classes'] = implode(' ', $node_classes);
-  
-  // Add node-type-page template suggestion
-  if ($vars['page']) {
-    $vars['template_files'][] = 'node-'. $vars['node']->type .'-page';
-  }
-  else {
-    $vars['template_files'][] = 'node-'. $vars['node']->type .'-teaser';
-    $vars['template_files'][] = 'node-'. $vars['node']->nid;
-  }
-}
-
-
-/**
- * Override or insert variables into the block templates.
- *
- * @param $vars
- *   An array of variables to pass to the theme template.
- */
 function jBase_preprocess_block(&$vars) {
-  // Id & classes for blocks
   $block = $vars['block'];
-  $block_id = 'block-'. $block->module .'-'. $block->delta;
-  $block_classes = array('block');
-  $block_classes[] = 'region-'. str_replace('_','-', $block->region);
-  $block_classes[] = 'block-' . $block->module;
-  $vars['edit_links_array'] = array();
-  $vars['edit_links'] = '';
-  
-  // first/last block position
+  // First/last block position
   $vars['position'] = ($vars['block_id'] == 1) ? 'first' : '';
   if ($vars['block_id'] == count(block_list($block->region))) {
     $vars['position'] = ($vars['position']) ? 'first last' : 'last';
   }
-  
-  // Does the user have block admin perms? if so then load template.block-editing.inc
-  // and add block-editing class to $block_classes array
-  if (user_access('administer blocks')) {
-    include_once './' . drupal_get_path('theme', 'jBase') . '/template.block-editing.inc';
-    phptemplate_preprocess_block_editing($vars, $hook);
-    $block_classes[] = 'block-editing';
-  }
-
-  // Render block id & classes.
-  $vars['block_id'] = $block_id;
-  $vars['block_classes'] = implode(' ', $block_classes);
-}
-
-
-/**
- * Override or insert variables into the comment templates.
- *
- * @param $vars
- *   An array of variables to pass to the theme template.
- */
-function jBase_preprocess_comment(&$vars) {
-  global $user;
-  // Build an array comment classes
-  $comment_classes = array();
-  static $comment_odd = TRUE;
-  $comment_classes[] = $comment_odd ? 'odd' : 'even';
-  $comment_odd = !$comment_odd;
-  $comment_classes[] = ($vars['comment']->status == COMMENT_NOT_PUBLISHED) ? 'comment-unpublished' : '';
-  $comment_classes[] = ($vars['comment']->new) ? 'comment-new' : '';
-  $comment_classes[] = ($vars['comment']->uid == 0) ? 'comment-by-anon' : '';
-  $comment_classes[] = ($user->uid && $vars['comment']->uid == $user->uid) ? 'comment-mine' : '';
-  $node = node_load($vars['comment']->nid);
-  $vars['author_comment'] = ($vars['comment']->uid == $node->uid) ? TRUE : FALSE;
-  $comment_classes[] = ($vars['author_comment']) ? 'comment-by-author' : '';
-  $comment_classes = array_filter($comment_classes);
-  $vars['comment_classes'] = implode(' ', $comment_classes);
-}
-
-
-/**
- * Set form file input max char size 
- */
-function jBase_file($element) {
-  $element['#size'] = ($element['#size'] > 30) ? 30 : $element['#size'];
-  return theme_file($element);
-}
-
-/**
- * Theme paths function
- * Retrieves current theme path and its parent
- * theme paths, in parent-to-child order.
- */
-function jBase_theme_paths($theme) {
-  $all_parents = array();
-  $themes = list_themes();
-  $all_parents[$theme] = drupal_get_path('theme', $theme);
-  $base_theme = $themes[$theme]->info['base theme'];
-  while ($base_theme) {
-    $all_parents[$base_theme] = drupal_get_path('theme', $base_theme);
-    $base_theme = (isset($themes[$base_theme]->info['base theme'])) ? $themes[$base_theme]->info['base theme'] : '';
-  }
-  return array_reverse($all_parents);
 }
