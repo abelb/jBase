@@ -1,0 +1,48 @@
+/* IE7 Fixes
+-------------------------------------------------------------- */
+/* Fixes IE margin bugs */
+* html .column { overflow-x: hidden; }
+
+/* Fixes IE7 missing wrapping of code elements. */
+html>body p code { *white-space: normal; }
+
+/* IE 6&7 has problems with setting proper <hr> margins. */
+hr  { margin: -8px auto 11px; }
+
+
+/* Fixes incorrect placement of ol numbers in IE6/7. */
+ol { margin-left:2em; }
+
+/* Fixes wrong line-height on sup/sub in IE. */
+sup { vertical-align: text-top; }
+sub { vertical-align: text-bottom; }
+
+/* limit legend width to text length */
+form fieldset legend {
+  display: inline-block !important;
+}
+
+/* fieldset & ledgend fixes */
+html.js fieldset {
+  margin-top: 1em;
+  padding-top: 1em;
+  position: relative;
+}
+
+html.js legend {
+  left: .5em;
+  position: absolute;
+  top: -.7em;
+}
+
+html.js fieldset.collapsed {
+  margin-bottom: 20px;
+}
+
+/* Helper classes
+-------------------------------------------------------------- */
+/* add .clearfix class to clear floats after an element */
+.clearfix {                                       
+  display: block;
+  height: 1%;
+}

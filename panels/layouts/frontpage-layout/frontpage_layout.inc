@@ -1,0 +1,32 @@
+<?php
+
+$plugin = array(
+   'title' => t('Frontpage Layout'),
+   'icon' => 'frontpage_layout.png',
+   'theme' => 'frontpage_layout',
+   'css' => 'frontpage_layout.css',
+    'panels' => array(
+      'header_first' => t('Header'),
+      'header_middle' => t('Header'),
+      'header_last' => t('Header'),
+      'top' => t('Top'),
+      'first_left_first' => t('Left column'),
+      'first_right_first' => t('Right column'),
+      'first_left_middle' => t('Left column'),
+      'first_right_middle' => t('Right column'),
+      'first_left_last' => t('Left column'),
+      'first_right_last' => t('Right column'),
+      'middle_left_first' => t('Left column'),
+      'middle_right_first' => t('Right column'),
+      'middle_left_middle' => t('Left column'),
+      'middle_right_middle' => t('Right column'),
+      'middle_left_last' => t('Left column'),
+      'middle_right_last' => t('Right column'),
+      'last_left_first' => t('Left column'),
+      'last_right_first' => t('Right column'),
+      'last_left_middle' => t('Left column'),
+      'last_right_middle' => t('Right column'),
+      'last_left_last' => t('Left column'),
+      'last_right_last' => t('Right column'),      
+    ),
+  );

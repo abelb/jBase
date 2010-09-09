@@ -1,0 +1,57 @@
+/* $Id$ */
+
+#front-layout {
+  overflow: hidden;
+  width: 640px;
+}
+
+#front-layout .top-container,
+#front-layout .column-container {
+  background: #fff;
+  margin-bottom: 10px;
+  padding: 12px;
+  overflow: hidden;
+  -moz-border-radius: 6px;    /* TODO: */
+  -webkit-border-radius: 6px;    /* TODO: */
+}
+
+#front-layout .container-row {
+  clear: both;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+#front-layout .left,
+#front-layout .right {
+  float: left;
+  margin-right: 12px;
+  width: 302px;
+}
+
+#front-layout .right {
+  float: right;
+  margin-right: 0;
+}
+
+/* panels content admin */
+/* style up the layout */ 
+#panels-dnd-main {
+  background: #ededed;
+  border: 1px solid #bbb;
+  padding: 20px;
+}
+
+#panels-dnd-main #front-layout {
+  margin: 0 auto;
+  width: 642px;
+}
+
+#panels-dnd-main  #front-layout .top-container,
+#panels-dnd-main  #front-layout .column-container {
+  border: 1px solid #aaa;
+  box-shadow: 0 2px 6px #999;
+  -moz-box-shadow: 0 2px 6px #999;
+  -webkit-box-shadow: 0 2px 6px #999;
+}
+
+  

@@ -1,0 +1,1513 @@
+/* Reset browser defaults
+-------------------------------------------------------------- */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote,
+a, abbr, acronym, address, big, cite,
+del, dfn, font, img, ins, kbd, q, s, samp,
+small, strike, sub, sup, tt, var, ol, ul, li, menu,
+fieldset, form, label, legend, input, textarea,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  border: 0;
+  font-family: inherit;
+  font-size: 100%;
+  font-style: inherit;
+  font-weight: inherit;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+}
+
+
+/* HTML & Body
+-------------------------------------------------------------- */
+html {
+}
+
+/* Default font settings. 
+  The font-size percentage is of 16px. (0.875 * 16px = 14px) */
+body {
+  background: #fff;
+  color: #555;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 87.5%;
+  line-height: 150%;
+}
+
+
+/* Headings
+-------------------------------------------------------------- */
+h1,h2,h3,h4,h5,h6 { color: #111; font-weight: normal; }
+
+h1 { font-size: 2em; line-height: 1.2em; margin-bottom: 0.5em; }
+h2 { font-size: 1.5em; line-height: 1.25em; margin-bottom: 0.75em; }
+h3 { font-size: 1.2em; line-height: 1; margin-bottom: 1em; }
+h4 { font-size: 1em; height: 1.25em; line-height: 1.25; margin-bottom: 1.25em; }
+h5 { font-size: 1em; font-weight: bold; margin-bottom: 1.5em; }
+h6 { font-size: 1em; font-weight: bold; }
+
+h1 img, h2 img, h3 img, 
+h4 img, h5 img, h6 img {
+  margin: 0;
+}
+
+
+/* Text elements
+-------------------------------------------------------------- */
+p {
+  font-size: 1em;
+  margin-bottom: 1em;
+}
+
+a,
+a:link,
+a:visited {
+  color: #0066b3;
+  text-decoration: none;
+}
+
+a:hover,
+a:active,
+a:focus {
+  color: #000;
+  text-decoration: underline;
+}
+
+strong {
+  font-weight: bold;
+}
+
+em,dfn {
+  font-style: italic;
+}
+
+dfn {
+  font-weight: bold;
+}
+
+sup,sub {
+  line-height: 0;
+}
+
+abbr,acronym {
+  border-bottom: 1px dotted #666;
+}
+
+address {
+  font-style: italic;
+  margin: 0 0 20px;
+}
+
+del {
+  color: #666;
+}
+
+pre,code {
+  margin: 20px 0;
+  white-space: pre;
+}
+
+pre,code,tt {
+  font: 1em 'andale mono', 'lucida console', monospace;
+  line-height: 1.5;
+}
+
+
+/* Lists
+-------------------------------------------------------------- */
+ul {
+  margin: 6px 0 14px;
+  padding: 0;
+}
+
+ol {
+  list-style-position: inside;
+  margin: 10px 0 18px;
+  padding: 0;
+}
+
+ol li {
+  padding: 0 0 4px;
+}
+
+ol li,
+ul li,
+ul.menu li,
+.item-list ul li,
+li.leaf {
+  margin: 2px 0 2px 0;
+}
+
+ul.menu,
+.item-list ul {
+  margin: 6px 0 0 0;
+  padding: 0;
+}
+
+ul.menu ul,
+.item-list ul ul {
+  margin-left: 0;
+}
+
+ul li,
+ul.menu li,
+.item-list ul li,
+li.leaf {
+  background: transparent url('../images/menu-leaf.gif') no-repeat 1px .45em;
+  list-style-type: none;
+  list-style-image: none;
+  padding: 0 0 4px 20px;
+}
+
+ul li.expanded {
+  background: transparent url('../images/menu-expanded.gif') no-repeat 1px .35em;
+}
+
+ul li.collapsed {
+  background: transparent url('../images/menu-collapsed.gif') no-repeat 0px .35em;
+}
+
+ul li.leaf a, 
+ul li.expanded a,
+ul li.collapsed a {
+  display: block;
+}
+
+ul.inline li {
+  background: none;
+  margin: 0;
+  padding: 0 14px 0 0;
+}
+
+ul.links li {
+  background: none;
+  margin: 0;
+  padding: 0;
+}
+
+dl {
+  margin: 0 0 22px 0;
+}
+
+dl dt {
+  font-weight: bold;
+}
+
+dd {
+  margin: 0 0 10px 22px;
+}
+
+#content-wrapper ul.tips li {
+  background: transparent;
+  font-size: 1em;
+  list-style: disc;
+  list-style-image: none;
+  list-style-position: inside;
+}
+
+/* remove list styling on login block and taxonomy */
+#user-login-form div.item-list ul li,
+div.terms ul li {
+  list-style-type: none;
+  margin: 0;
+}
+
+#autocomplete li {
+  margin: 0;
+  padding: 0 8px;
+}
+
+
+/* Helper classes
+-------------------------------------------------------------- */
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.first {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.last {
+  margin-right: 0;
+  padding-right: 0;
+}
+
+.top {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.bottom {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.hide {
+  display: none;
+  visibility: hidden;
+}
+
+.clear {
+  clear: both;
+}
+
+.clearfix:after {
+  clear: both;                                    
+  content: "."; 
+  display: block; 
+  font-size: 0;
+  height: 0; 
+  visibility: hidden;
+}
+
+
+/* Misc.
+-------------------------------------------------------------- */
+/* Remove border on linked images. */
+a img {
+  border: none;
+}
+
+hr {
+  height: 1px;
+  border: 1px solid #ddd;
+}
+
+div.content a.feed-icon img,
+div.content th img {
+  border: 0;
+}
+
+
+/* Page
+-------------------------------------------------------------- */
+#page {
+  margin: 0 auto;
+  width: 980px;
+}
+
+
+/* Banner Region
+-------------------------------------------------------------- */
+#banner {
+
+}
+
+
+/* Header Regions
+-------------------------------------------------------------- */
+#header-top {
+}
+
+#header-top #search-box {
+  float: right;
+}
+
+#header-top #search-box #edit-search-theme-form {
+}
+
+#header-top #search-box #edit-submit {
+}
+
+#header-wrapper {
+}
+
+#header-first,
+#header-middle,
+#header-last {
+  float: left;
+  width: 326px;
+}
+
+#header-first #logo {
+  margin: 10px 0;
+}
+
+#header-first #site-name {
+}
+
+#header-first #site-name a:link,
+#header-first #site-name a:visited,
+#header-first #site-name a:hover,
+#header-first #site-name a:active {
+  text-decoration: none;
+}
+
+#header-first #slogan {
+  display: block;
+  margin: 10px 0 20px;
+}
+
+#header-middle {
+}
+
+#header-last {
+}
+
+#header-bottom {
+}
+
+
+/* Main content
+-------------------------------------------------------------- */
+#main-content {
+}
+
+
+/* Preface Regions
+-------------------------------------------------------------- */
+#preface-wrapper {
+}
+
+#preface-wrapper #preface-first {
+}
+
+#preface-wrapper #preface-middle {
+}
+
+#preface-wrapper #preface-last {
+}
+
+
+/* Preface Regions - First:Middle:Last
+-------------------------------------------------------------- */
+#preface-wrapper.prefaces-1 .column {
+  float: left;
+  width: 100%;
+}
+  
+#preface-wrapper.prefaces-2 .column{
+  float: left;
+  width: 50%;
+}
+  
+#preface-wrapper.prefaces-3 .column {
+  float: left;
+  width: 33.3%;
+}
+
+
+/* Main Area Wrapper - Sidebars + Content
+-------------------------------------------------------------- */
+#main-wrapper {
+  margin-bottom: 20px;
+}
+
+
+/* Sidebar Region
+-------------------------------------------------------------- */
+#sidebar-first {
+  float: left;
+}
+
+#sidebar-last {
+  float: right;
+}
+
+
+/* Content Regions
+-------------------------------------------------------------- */
+#content-wrapper {
+  float: left;
+}
+
+#content-top {
+}
+
+#content-top #mission {
+}
+
+#content {
+  margin: 0;               /* default spacing between content regions */
+}
+
+#content-inner {
+}
+
+#content-bottom {
+}
+
+#node-bottom {
+  margin: 30px 0 0 0;
+}
+
+
+/* Postscript Regions
+-------------------------------------------------------------- */
+#postscript-wrapper {
+}
+
+#postscript-wrapper #postscript-first {
+}
+
+#postscript-wrapper #postscript-middle {
+}
+
+#postscript-wrapper #postscript-last {
+}
+
+
+/* Postscript Regions - First:Middle:Last
+-------------------------------------------------------------- */
+#postscript-wrapper.postscripts-1 .column {
+  float: left;
+  width: 100%;
+}
+
+#postscript-wrapper.postscripts-2 .column {
+  float: left;
+  width: 50%;
+}
+
+#postscript-wrapper.postscripts-3 .column {
+  float: left;
+  width: 33.3%;
+}
+
+
+/* Footer Regions
+-------------------------------------------------------------- */
+#footer-top {
+}
+
+#footer-wrapper {
+}
+
+#footer-wrapper #footer-first {
+}
+
+#footer-wrapper #footer-middle {
+}
+
+#footer-wrapper #footer-last {
+}
+
+#footer-bottom {
+}
+
+
+/* Footer Regions - First:Middle:Last
+-------------------------------------------------------------- */
+#footer-wrapper.footers-1 .column {
+  float: left;
+  width: 100%;
+}
+
+#footer-wrapper.footers-2 .column {
+  float: left;
+  width: 50%;
+}
+
+#footer-wrapper.footers-3 .column {
+  float: left;
+  width: 33.3%;
+}
+
+
+/* Footer message
+-------------------------------------------------------------- */
+#footer-message {
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+
+
+/* Single Column Layout (Main Content)
+-------------------------------------------------------------- */
+body.layout-main #content-wrapper {
+  margin: 0;
+  width: 980px;
+}
+
+
+/* Two Column Layout - Sidebar:Main Content
+-------------------------------------------------------------- */
+body.layout-first-main #sidebar-first {
+  margin: 0 20px 0 0;
+  width: 225px;
+}
+
+body.layout-first-main #content-wrapper {
+  margin: 0;
+  width: 735px;
+}
+
+
+/* Two Column Layout - Main Content:Sidebar
+-------------------------------------------------------------- */
+body.layout-main-last #content-wrapper {
+  margin: 0 20px 0 0;
+  width: 635px;
+}
+
+body.layout-main-last #sidebar-last {
+  margin: 0;
+  width: 325px;
+}
+
+
+/* Three Column Layout - Sidebar:Main Content:Sidebar
+-------------------------------------------------------------- */
+body.layout-first-main-last #sidebar-first {
+  margin: 0 20px 0 0;
+  width: 225px;
+}
+
+body.layout-first-main-last #content-wrapper {
+  margin: 0 20px 0 0;
+  position: relative;
+  width: 390px;
+  z-index: 1;                    /* keep content visible on admin pages */
+}
+
+body.layout-first-main-last #sidebar-last {
+  margin: 0;
+  width: 325px;
+}
+
+
+/* Nodes
+-------------------------------------------------------------- */
+div.node {
+  margin: 0 0 20px 0;
+}
+
+div.node ul.links li,
+div.node ul.inline li,
+div.node .links a {
+  padding-right: 14px;
+}
+
+div.node ul.links li.last a {
+  padding-right: 0;
+}
+
+div.node .read-more a,
+div.node .more-link a,
+div.node .links a {
+  font-size: 1em;
+}  
+
+.submitted,
+.terms {                                      /* styling for byline and tags */
+  font-size: 0.9em;
+}
+
+.submitted a:link,
+.submitted a:visited {
+}
+
+.submitted a:visited,
+.submitted a:hover,
+.submitted a:active {
+}
+
+div.node div.meta {
+  font-size: 1em;
+  line-height: 1.667em;
+  margin-bottom: 1.667em;
+}
+
+div.meta div.submitted, div.meta div.terms {
+  display: inline;
+}
+
+div.node div.picture {
+  float: right;
+  margin: 0 0 0.8em 0.8em;
+}
+
+div.node ul.links {
+  display: block;
+  text-align: right;
+}
+
+div.node div.meta ul.links {
+  display: inline;
+  padding: 0 1em 0 0;
+}
+
+div.node .comment_forbidden a {
+  padding: 0;
+}
+
+.node-unpublished {
+  background-color: #FFF0F0;
+  border: 1px solid #FFBABA;
+  padding: 8px;
+}
+
+.preview .node {
+  background-color: #FFFFDD;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+/* taxonomy */
+.vocab-name {
+  font-weight: bold;
+}
+
+.terms {
+  line-height: 130%;
+}
+
+.terms ul.taxonomy li {
+  background-image: none;
+  margin: 5px 0;
+  padding-left: 0;
+}
+
+.terms ul.taxonomy ul.vocab-list,
+.terms ul.taxonomy li.vocab-term {
+  display: inline;
+}
+
+.terms ul.taxonomy li.vocab-term {
+  background-image: none;
+  padding: 0 6px 0 0;
+}
+
+
+/* Blocks
+-------------------------------------------------------------- */
+/* for region labels on block admin page */
+div.block-region {
+  background-color: #ffff66;
+  color: #000;
+  font-family: Tahoma,Verdana,Arial,Helvetica,sans-serif;
+  font-size: 1.166em;
+  font-weight: 600;
+  margin-bottom: 4px;
+  margin-top: 4px;
+  padding: 3px;
+  text-align: center;
+}
+
+#blocks td.region {
+  font-size: 1.333em;
+}
+
+div.block-wrapper {    /* spacing between blocks */
+  margin: 0 0 20px;
+}
+
+div.block-inner {    /* wrapper around title and content */
+}
+
+div.block .title {
+}
+
+div.block .content {
+}
+
+div.block .submitted {
+}
+
+div.block .submitted a:link {
+}
+
+div.block .submitted a:visited,
+div.block .submitted a:hover,
+div.block .submitted a:active {
+}
+
+/* user login block */
+div.block #user-login-form {
+  text-align: left;
+}
+
+
+/* Block Menus
+-------------------------------------------------------------- */
+.block ul.menu li a {								
+}
+
+.block ul.menu li {
+}
+
+.block ul.menu li a:link,
+.block ul.menu li a:visited {
+}
+
+.block ul.menu li a:hover,
+.block ul.menu li a:active {
+}
+
+
+/* Block editing - configure & edit menu links for blocks
+-------------------------------------------------------------- */
+div.block.block-editing {
+  position: relative;
+}
+
+div.block.block-editing div.edit {
+  background-color: #fff;
+  box-shadow: 4px 4px 6px #888;
+  color: #000;
+  border: 1px solid #ccc;
+  display: none;
+  font-size: 9px;
+  padding: 0 4px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 40;
+ -moz-box-shadow: 4px 4px 8px #888;
+ -webkit-box-shadow: 4px 4px 6px #888;
+}
+
+div.block.block-editing div.edit a {
+  color: #000 !important;
+}
+
+div.block.block-editing:hover div.edit {
+  display: block;
+}
+
+
+/* User Login Block - Open ID
+-------------------------------------------------------------- */
+/* adjust openid link */
+/* note: display set in openid.js */
+html.js #user-login-form li.openid-processed, 
+html.js #user-login li.openid-processed {
+  background: transparent;
+  list-style-type: none;
+  margin-top: 15px;
+  padding: 4px 0;
+}
+
+
+/* Primary Menu
+-------------------------------------------------------------- */
+#primary-menu {
+  display: block;
+  padding: 0;
+  position: relative;
+}
+
+#primary-menu:after {
+  clear: both;
+  content: ".";
+  display: block;
+  font-size: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+#primary-menu ul.menu {
+  margin: 0;
+}
+
+#primary-menu ul.menu li {
+  background-image: none;
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 0 8px 0 0;
+  position: relative;
+  /*width: 75px;*/
+}
+
+#primary-menu ul.menu li a,
+#primary-menu ul.menu li a:link,
+#primary-menu ul.menu li a:visited {
+  display: block;
+}
+
+#primary-menu ul.menu li ul {
+  background: #fff;
+  border: 1px solid #ddd;
+  left: -999em;
+  padding: 4px;
+  position: absolute;
+}
+  
+#primary-menu ul.menu li:hover ul {
+  display: block;
+  left: auto;
+}
+  
+#primary-menu ul.menu li ul li {
+  float: left;
+  font-size: 0.857em;
+  height: auto;
+  margin: 0;
+  padding: 2px 0;
+  width: 140px;
+}
+  
+#primary-menu ul.menu li ul li a,
+#primary-menu ul.menu li ul li a:link,
+#primary-menu ul.menu li ul li a:visited {
+  /*background: #f7f7f7;*/
+  display: block;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+#primary-menu ul.menu li ul li a:hover,
+#primary-menu ul.menu li ul li a:active,
+#primary-menu ul.menu li ul li a.active {
+  /*background: #f0f0f0;*/
+}
+
+
+/* Secondary menu
+-------------------------------------------------------------*/
+#secondary-menu {
+  margin-bottom: 10px;
+  text-align: right;
+}
+
+#secondary-menu ul.links li {
+  background-image: none;
+  padding: 0 8px 0 0;
+}
+
+
+/* Blockquotes
+-------------------------------------------------------------- */
+.content blockquote p {
+  font-style: italic;
+  margin: 0;
+  padding: 8px 20px;
+}
+
+blockquote {
+  background: url('../images/close-quote.gif') no-repeat right bottom;
+  color: #5A6A78;
+  margin: 10px 0;
+}
+
+blockquote p:first-child {
+  background: url('../images/open-quote.gif') no-repeat left top;
+  padding: 0 0 0 20px;
+}
+
+blockquote * > :first-child {
+  background: transparent;
+  padding: 0;
+}
+
+blockquote a:link {
+  text-decoration: underline;
+}
+
+
+/* Breadcrumbs
+-------------------------------------------------------------- */
+#breadcrumb {
+  font-size: 0.9em;
+}  
+
+.breadcrumb {
+}
+
+
+/* Drupal messages
+-------------------------------------------------------------- */
+div.messages a:link,
+div.messages a:visited,
+.help a:link,
+.help a:visited,
+.help .more-help-link a:link,
+.help .more-help-link a:visited {
+  color: #0066B3;
+}
+
+div.messages a:hover,
+div.messages a:active,
+.help a:hover,
+.help a:active,
+.help .more-help-link a:hover,
+.help .more-help-link a:active {
+  color: #000;
+}
+
+div.messages,
+div.messages.status {
+  background-color: #EAF8E4;
+  border: 6px solid #8DC478;
+  color: #3E642F;
+  font-weight: 600;
+  font-size: 1em;
+  margin-bottom: 20px;
+  overflow: hidden;
+  padding: 14px;
+}
+
+div.messages.warning {
+  background: #FFFFDD;
+  border: 6px solid #EED300;
+  color: #745500;
+}
+
+div.messages a {
+}
+
+div.messages ul {
+  list-style-position: inside;
+}
+
+div.messages em {
+  color: #555;
+}
+
+div.error {
+  background-color: #FFF2F2;
+  border-color: #CC0000;
+  color: #B20000;
+}
+
+.help {
+  background-color: #E4EEF8;
+  border: 6px solid #57718A;
+  color: #292929;
+  font-size: 1em;
+  font-weight: 600;
+  margin-bottom: 20px;
+  overflow: hidden;
+  padding: 10px 16px;
+}
+
+
+/* Tabs
+-------------------------------------------------------------------*/
+ul.primary,
+ul.primary li,
+ul.secondary,
+ul.secondary li {
+  background: none;
+}
+
+#content-tabs {
+  background-color: transparent;
+  float: left;
+  margin: 20px 0;
+  padding: 0;
+}
+
+#content-tabs ul.primary,
+#content-tabs ul.secondary {
+  border-bottom: 1px solid #000;
+  clear: both;
+  float: left;
+  margin: 0;
+  padding: 0 10px;
+}
+
+#content-tabs ul.secondary {
+  border-bottom: 1px solid #555;
+  margin-top: 10px;
+  text-transform: lowercase;
+}
+
+#content-tabs ul.primary li,
+#content-tabs ul.secondary li {
+  border-style: none;
+  display: inline;
+  float: left;
+  list-style: none;
+  margin: 0 10px;
+  padding: 0;
+}
+
+#content-tabs ul.primary li a:link,
+#content-tabs ul.primary li a:visited,
+#content-tabs ul.secondary li a:link,
+#content-tabs ul.secondary li a:visited {
+  background-color: transparent;
+  border: none;
+  color: #000;
+  float: left;
+  font-size: 1.1em;
+  line-height: 1.2em;
+  font-weight: bold;
+  margin: 0;
+  padding: 0 0 6px 0;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+#content-tabs ul.secondary li a:link,
+#content-tabs ul.secondary li a:visited {
+  color: #555;
+  font-size: 1em;
+  line-height: 1.1em;
+}
+
+#content-tabs ul.primary li a.active:link,
+#content-tabs ul.primary li a.active:visited {
+  border-bottom: 4px solid #000;
+  color: #555;
+  padding-bottom: 2px;
+}
+
+#content-tabs ul.secondary li a.active:link,
+#content-tabs ul.secondary li a.active:visited {
+  border-bottom: 4px solid #555;
+  color: #777;
+  padding-bottom: 2px;
+}
+
+#content-tabs ul.primary li a:hover,
+#content-tabs ul.primary li a:focus,
+#content-tabs ul.secondary li a:hover,
+#content-tabs ul.secondary li a:focus {
+  border-bottom: 4px solid #777;
+  color: #777;
+  padding-bottom: 2px;
+}
+
+
+/* Forms
+-------------------------------------------------------------- */
+form {
+  margin: 0;
+  padding: 0;
+}
+
+.form-submit,
+textarea,
+input {
+  border: 1px solid #ccc;
+  font-size: 1em;
+  font-weight: normal;
+  margin: 0;
+  padding: 1px 4px;
+  vertical-align: text-bottom;
+}
+
+textarea {
+  line-height: 1.5em;
+  height: auto;
+  padding: 2px;
+}
+
+input.text, input.title,
+textarea, select {
+  border: 1px solid #bbb;
+  margin: 8px 0;
+}
+
+.form-submit:hover {
+  cursor: pointer;
+}  
+
+/* form-item styles */
+.form-item {
+}
+
+.form-item input,
+.form-item select,
+.form-item textarea,
+.form-item .resizable-textarea .grippie {
+}
+
+.form-item input.error,
+.form-item select.error,
+.form-item textarea.error {
+  border: 1px solid #dd7777;
+  background: #ffcccc;
+  color: #8a1f11;
+}
+
+.form-item strong.error {
+  display: block;
+}
+
+.form-item .description {
+  font-size: 0.9em;
+  line-height: 1.667em; /* more accurate line-height value */
+}
+
+.form-item .description img {
+  margin: 0;
+}
+
+/* form-text styles */
+.form-text {
+}
+
+input.form-text {
+  padding: 2px;
+}
+
+input.form-text:hover,
+input.text:hover,
+input.title:hover,
+textarea:hover,
+select:hover {
+  background: #fafafa;
+}
+
+input.form-text:focus,
+input.text:focus, input.title:focus,
+textarea:focus, select:focus {
+  border: 1px solid #999;
+}
+
+/* fieldset styles */
+fieldset {
+  background: #F5F5F5;
+  border: 1px solid #ccc;
+  margin: 0 0 22px 0;
+  padding: 20px;
+}
+
+fieldset legend {
+  background: #fff;
+  border: 1px solid #ccc;
+  display: block;
+  font-size: 1em;
+  font-weight: bold;
+  padding: 0 6px;
+}
+
+fieldset dl,
+fieldset select {
+  margin: 0;
+}
+
+/* prevent uncessary scrollbars */
+fieldset .collapsible {
+  overflow: hidden;
+}
+
+html.js fieldset.collapsed {
+  background: none;
+}
+
+/* legend styles */
+html.js fieldset.collapsible legend a {
+  background: transparent url('../images/menu-expanded.gif') no-repeat 0;
+  text-decoration: none;
+}
+
+html.js fieldset.collapsed legend a {
+  background: transparent url('../images/menu-collapsed.gif') no-repeat 0;
+}
+
+html.js fieldset legend:hover {
+  background-color: #f7f7f7;
+}
+
+div.resizable-textarea textarea {
+  margin-top: 0;
+}
+
+html.js input.form-autocomplete {
+  background-position: 100% 5px;
+  max-width: 96%;
+}
+
+/* form error styles */
+div.error, tr.error,
+span.form-required,
+span.marker {
+  color: #8a1f11;
+}
+
+/* theme settings form field width limit */
+form#system-theme-settings select,
+form#system-theme-settings input.form-text {
+  max-width: 95%;
+}
+
+/* keep theme select form visible */
+#system-themes-form {
+  position: relative;
+  z-index: 1;
+}
+
+/* keep theme switcher visible */
+.form-item select#edit-theme {
+  max-width: none;
+}
+
+
+/* Tables
+-------------------------------------------------------------- */
+table {
+  border-collapse: collapse;
+  margin-bottom: 1em;
+  width: 100%;
+}
+
+th,
+thead th {
+  color: #333;
+  text-align: left;
+  padding-right: 1em;
+  border-bottom: 1px solid #ccc;
+}
+
+tbody {
+}
+
+tbody th {
+  border-bottom: 1px solid #ccc;
+}
+
+tr {
+  padding: 0.1em 0.6em;
+}
+
+td {
+  padding: 3px;
+}
+
+td.active {
+  background: none;
+}
+
+th.active img {
+  display: inline;
+}
+
+tr.even {
+  background-color: #f1f5fa;
+  border-bottom: 1px solid #ccc;
+}
+
+tr.odd {
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+}
+
+tr.selected {
+  color: #000
+}
+
+table.sticky-header {
+  background: #fff;
+}
+
+tfoot {
+  font-style: italic;
+}
+
+caption {
+  background: #eee;
+}
+
+tr.drag,
+tr.drag-previous {
+  background: #ffffdd;
+}
+
+
+/* Pagers
+-------------------------------------------------------------- */
+ul.pager {
+  font-size: 0.9em;
+  line-height: 1.667em;
+  margin: 20px 0;
+}
+
+ul.pager li {
+  line-height: 2.5em;
+  margin: 0;
+  white-space: nowrap;
+}
+
+ul.pager a,
+ul.pager li.pager-current {
+  border: 1px solid #0066b3;
+  padding: 3px 6px;
+  text-decoration: none;
+}
+
+ul.pager li.pager-current {
+  background: #0066b3;
+  color: #fff;
+}
+
+ul.pager a:link,
+ul.pager a:visited {
+  color: #0066b3;
+}
+
+ul.pager a:hover,
+ul.pager a:active,
+ul.pager a:focus {
+  background-color: #0066b3;
+  border: 1px solid #0066b3;
+  color: #fff;
+}
+
+ul.pager span.pager-ellipsis {
+  padding: 0 4px;
+}
+
+.item-list .pager li {
+  padding: 0;
+}
+
+
+/* Admin page(s)
+-------------------------------------------------------------- */
+div.admin {
+  padding-top: 0;
+}
+
+div.admin .left,
+div.admin .right {
+  margin-left: 1%;
+  margin-right: 1%;
+}
+
+div.admin-panel {
+  padding: 20px 0 0 0;
+}
+
+div.admin-panel .body {
+  padding: 0;
+}
+
+div.admin-panel .description {
+  margin: 0 0 20px 0;
+  padding: 0;
+}
+
+#user-admin-filter ul li,
+#node-admin-filter ul li {
+  list-style: none; /* remove list style from content node filter */
+}
+
+div.admin-dependencies,
+div.admin-required {
+}
+
+/* theme listing page */
+#page-admin-build-themes .description em {
+  color: red;
+}
+
+
+/* Accessibility
+/-------------------------------------------------------------- */
+/* skip-link to main content */
+#skip a,
+#skip a:hover,
+#skip a:visited {
+  height: 1px;
+  left: 0px;
+  overflow: hidden;
+  position: absolute;
+  top: -500px;
+  width: 1px;
+}
+
+#skip a:active,
+#skip a:focus {
+  height: auto;
+  position: static;
+  width: auto;
+}
+
+
+/* Modules styles
+-------------------------------------------------------------- */
+
+/* Comments
+-------------------------------------------------------------- */
+div.comment {
+  margin: 14px 0;
+  padding: 10px;
+}
+
+h2.comments {
+  font-size: 1em;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+div.comment h3.title {
+  font-weight: bold;
+  margin: 0 0 5px 0;
+}
+
+div.comment h3.title a {
+}
+
+div.comment .submitted {
+}
+
+div.comment .comment-name {
+}
+
+.comment .links li {
+  background: none;
+  padding: 0 6px 0 0;
+}
+
+div.comment div.links a,
+div.comment ul.links a {
+  font-size: 0.9em;
+  text-align: right;
+}
+
+#comments div.odd {
+  background-color: #FFF;
+}
+
+#comments div.even {
+  background-color: #EEE;
+}
+
+div.comment .picture {
+  float: right;
+}
+
+.signature {
+  border-top: 1px solid #D6DDB9;
+  font-size: 0.916em;
+  margin: 10px 0;
+  padding: 0;
+}
+
+
+/* Vertical tabs
+-------------------------------------------------------------- */
+.vertical-tabs fieldset {
+  background: transparent;
+}
+div.vertical-tabs .vertical-tabs-panes fieldset.vertical-tabs-pane {
+  padding: 20px;
+}
+
+
+/* Views
+-------------------------------------------------------------- */
+/* views form field width limit */
+.views-edit-view input,
+.views-edit-view textarea {
+  max-width: 95%;
+}
+
+#views-ui-edit-view-form {
+  margin: 20px 0;
+}
+
+/* remove bottom margin from last node in view to prevent excess spacing in blocks */
+.block-wrapper .block-views .views-row-last .node {
+  margin-bottom: 0;
+}
+
+/* prevent horizontal scrollbar on admin link hover */
+div.view div.views-admin-links {
+  width: auto;
+}
+
+div.view div.views-admin-links li {
+  background: transparent !important;
+}

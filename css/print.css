@@ -1,0 +1,46 @@
+/* Print styles
+-------------------------------------------------------------- */
+body {
+  background: white;
+  font-size: 10pt;
+}
+
+#banner,
+#header,
+#header-top,
+#header-wrapper,
+#header-bottom,
+#sidebar-first,
+#sidebar-last,
+#preface-wrapper,
+#content-tabs,
+#mission,
+#slogan,
+#postscript-wrapper,
+#footer-top,
+#footer-wrapper,
+#footer-bottom,
+#primary-menu,
+#search-box,
+#logo {
+  display: none;
+}
+
+#page,
+#main-wrapper,
+#content-wrapper,
+#content-top,
+#content,
+#content-bottom {
+  background: transparent none;
+  border: 0;
+  color: black;
+  float: none !important;
+  margin: 0;
+  padding: 0;
+  width: auto;
+}
+  
+#content-wrapper {
+  margin: 0 3%;
+}

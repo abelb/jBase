@@ -1,0 +1,59 @@
+name = jBase
+description = Drupal base theme for custom theming projects
+version = 1.0
+core = 6.x
+engine = phptemplate
+
+; Stylesheets
+;stylesheets[all][] = css/fonts.css
+stylesheets[all][] = css/style.css
+stylesheets[all][] = css/dblog.css
+stylesheets[print][] = css/print.css
+
+; Scripts
+;scripts[] = js/script.js
+
+; Cufon
+;scripts[] = type/cufon/cufon-yui.js
+;scripts[] = type/cufon/FONT_font.js ;TODO: use Cufon font generator for font.js
+;scripts[] = type/cufon/theme_name.cufon.js
+
+; Panels
+;plugins[panels][layouts] = panels/layouts
+;plugins[panels][styles] = panels/styles
+
+; Regions
+regions[banner] = banner
+regions[header_top] = header top
+regions[header_first] = header first
+regions[header_middle] = header middle
+regions[header_last] = header last
+regions[header_bottom] = header bottom
+regions[preface_first] = preface first
+regions[preface_middle] = preface middle
+regions[preface_last] = preface last
+regions[sidebar_first] = sidebar first
+regions[sidebar_last] = sidebar last
+regions[content_top] = content top
+regions[content] = content
+regions[content_bottom] = content bottom
+regions[postscript_first] = postscript first
+regions[postscript_middle] = postscript middle
+regions[postscript_last] = postscript last
+regions[footer_top] = footer top
+regions[footer_first] = footer first
+regions[footer_middle] = footer middle
+regions[footer_last] = footer last
+regions[footer_bottom] = footer bottom
+
+; Features
+features[] = logo
+features[] = name
+features[] = slogan
+features[] = mission
+features[] = node_user_picture
+features[] = comment_user_picture
+features[] = search
+features[] = favicon
+features[] = primary_links
+features[] = secondary_links
