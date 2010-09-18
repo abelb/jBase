@@ -5,19 +5,6 @@
 //******************************************************************************************
 
 
-/**
- * Override or insert variables into templates before other preprocess functions.
- *
- * @param $vars
- *   An array of variables to pass to the theme template.
- */
-function jBase_preprocess(&$vars) {
-  global $user;
-  $vars['is_admin'] = in_array('admin', $user->roles);
-  $vars['logged_in'] = ($user->uid > 0) ? TRUE : FALSE;
-}
-
-
 function jBase_preprocess_html(&$vars) {
   // give <body> tag a unique id depending on PAGE PATH
   $path_alias = strtolower(preg_replace('/[^a-zA-Z0-9-]+/', '-', drupal_get_path_alias($_GET['q'])));
