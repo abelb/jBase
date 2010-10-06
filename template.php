@@ -93,7 +93,6 @@ function jBase_preprocess_page(&$vars) {
 
   // Set IE stylesheets
   $themes = jBase_theme_paths($theme_key);
-  $vars['setting_styles'] = $vars['ie6_styles'] = $vars['ie7_styles'] = $vars['ie8_styles'];
   foreach ($themes as $name => $path) {
     $link = '<link type="text/css" rel="stylesheet" media="all" href="' . base_path() . $path;
     $vars['ie6_styles'] .= (file_exists($path . '/css/ie6-fixes.css')) ? $link . '/css/ie6-fixes.css" />' . "\n" : '';
