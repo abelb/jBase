@@ -73,6 +73,24 @@ function jBase_preprocess_page(&$vars) {
 }
 
 
+function jbase_preprocess_node(&$vars) {
+  $vars['classes_array'][] = $vars['zebra'];
+  $vars['classes_array'][] = drupal_html_class('node-type-' . $vars['type']);
+  $vars['classes_array'][] = ($vars['page']) ? 'full-node' : '';
+  
+  // Add node-type-page template suggestion
+  if ($vars['page']) {
+    $vars['theme_hook_suggestions'][] = 'node__'. $vars['node']->type .'-page';
+    $vars['theme_hook_suggestions'][] = 'node__'. $vars['node']->type .'-'. $vars['node']->nid .'-page';
+  }
+  else {
+    $vars['theme_hook_suggestions'][] = 'node__'. $vars['node']->type .'-teaser';
+    $vars['theme_hook_suggestions'][] = 'node__'. $vars['node']->nid;
+  }
+}
+
+
+
 function jBase_preprocess_block(&$vars) {
   $block = $vars['block'];
   // First/last block position
