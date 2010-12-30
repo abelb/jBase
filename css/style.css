@@ -612,9 +612,7 @@ div.node .links a {
 }
 
 div.node div.meta {
-  font-size: 1em;
-  line-height: 1.667em;
-  margin-bottom: 1.667em;
+  margin-bottom: 10px;
 }
 
 div.meta div.submitted, div.meta div.terms {
@@ -623,7 +621,7 @@ div.meta div.submitted, div.meta div.terms {
 
 div.node div.picture {
   float: right;
-  margin: 0 0 0.8em 0.8em;
+  margin: 0 0 10px 0;
 }
 
 div.node ul.links {
@@ -633,7 +631,7 @@ div.node ul.links {
 
 div.node div.meta ul.links {
   display: inline;
-  padding: 0 1em 0 0;
+  padding: 0 14px 0 0;
 }
 
 div.node .comment_forbidden a {
@@ -726,8 +724,12 @@ div.block-region {
   font-size: 1.333em;
 }
 
-div.block-wrapper {                    /* spacing between blocks */
+div.block-wrapper {
   margin: 0 0 20px;
+}
+
+div.region-content div.block-wrapper {
+  margin: 0;
 }
 
 div.block .title {
@@ -736,7 +738,7 @@ div.block .title {
 div.block .content {
 }
 
-div.block .submitted {                               /* byline styles in blocks */
+div.block .submitted {
 }
 
 div.block .submitted a:link {
@@ -976,8 +978,8 @@ ul.secondary li {
 
 #content-tabs {
   background-color: transparent;
-  float: left;
-  margin: 20px 0;
+  margin: 10px 0;
+  overflow: hidden;
   padding: 0;
 }
 
@@ -1117,7 +1119,8 @@ textarea, select {
   display: block;
 }
 
-.form-item .description {
+.form-item .field-suffix {
+  display: block;
   font-size: 0.9em;
   line-height: 1.667em; /* more accurate line-height value */
 }
