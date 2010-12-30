@@ -97,6 +97,6 @@ function jBase_preprocess_block(&$vars) {
   // First/last block position
   $vars['position'] = ($vars['block_id'] == 1) ? 'first' : '';
   if ($vars['block_id'] == count(block_list($block->region))) {
-    $vars['position'] = ($vars['position']) ? 'first last' : 'last';
+    $vars['position'] = ($vars['position']) ? '' : 'last';
   }
 }
