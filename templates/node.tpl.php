@@ -102,7 +102,7 @@
       <?php if (!empty($content['links']['terms'])): ?>
         <div class="terms terms-inline"><?php print render($content['links']['terms']); ?></div>
       <?php endif; ?>
-    </div>
+    </div><!-- /meta -->
   <?php endif; ?>
 
   <div class="content"<?php print $content_attributes; ?>>
