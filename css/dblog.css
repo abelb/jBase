@@ -30,7 +30,8 @@ tr.ok.odd {
   color: #000;
 }
 
-tr.dblog-notice {
+tr.dblog-notice,
+tr.dblog-system {
   background: #E4EEF8;
   color: #000;
 }
