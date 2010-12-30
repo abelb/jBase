@@ -66,8 +66,7 @@ a:visited {
 }
 
 a:hover,
-a:active,
-a:focus {
+a:active {
   color: #000;
   text-decoration: underline;
 }
@@ -771,60 +770,6 @@ div.block #user-login-form {
 }
 
 
-/* Rounded Corners for Blocks (optional)
--------------------------------------------------------------- */
-div.rounded-block {
-  margin-top: -1px;                               /* use negative margin to overlap stacked blocks */
-}
-
-p.rounded-topspace {
-  margin-top: 0;                                  /* removes unwanted space */
-}
-
-p.rounded-bottomspace {
-  margin-bottom: 0;                               /* removes unwanted space */
-}
-
-div.rounded-block-top-left, 
-div.rounded-block-top-right, 
-div.rounded-block-bottom-left, 
-div.rounded-block-bottom-right { 
-  background-image: none;                         /* combined rounded corner image */
-  font-size: 2px;                                 /* IE div correction */
-  height: 11px;                                   /* height of an image corner */
-}
-
-div.rounded-block-top-left, 
-div.rounded-block-bottom-left { 
-  margin-right: 11px;                             /* width of an image corner */
-}
-
-div.rounded-block-top-right {                        /* anchor image in top right */
-  background-position: 100% 0;
-}
-
-div.rounded-block-top-right,
-div.rounded-block-bottom-right { 
-  margin-left: 11px;                              /* width of an image corner */
-  margin-top: -11px;                              /* height of an image corner */
-}
-
-div.rounded-block-bottom-left  { 
-  background-position: 0 -11px;                   /* negative height of an image corner */
-}
-
-div.rounded-block-bottom-right { 
-  background-position: 100% -11px;                /* negative height of an image corner */
-}
-
-div.rounded-inside {
-  border-left: 0;                                 /* left inside border color & width */
-  border-right: 0;                                /* right inside border color & width */
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-
 /* Block editing - configure & edit menu links for blocks
 -------------------------------------------------------------- */
 div.block.block-editing {
@@ -1143,6 +1088,7 @@ textarea, select {
 .button,
 .form-submit {
   background: #FBF8F1;
+  margin-right: 10px;
 }
 
 .form-submit:hover {
@@ -1231,16 +1177,24 @@ fieldset .collapsible {
 
 html.js fieldset.collapsed {
   background: none;
+  margin: 0 10px;
+  padding: 10px;
 }
 
 /* legend styles */
-html.js fieldset.collapsible legend a {
+html.js fieldset.collapsible .fieldset-legend {
   background: transparent url('../images/menu-expanded.gif') no-repeat 0;
   text-decoration: none;
 }
 
-html.js fieldset.collapsed legend a {
+html.js fieldset.collapsed .fieldset-legend {
   background: transparent url('../images/menu-collapsed.gif') no-repeat 0;
+}
+
+span.fieldset-legend a:hover,
+span.fieldset-legend a:active,
+span.fieldset-legend a:focus {
+  text-decoration: none;
 }
 
 html.js fieldset legend:hover {
