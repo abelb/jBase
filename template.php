@@ -44,9 +44,10 @@ function jBase_preprocess_html(&$vars) {
   
   $vars['classes_array'] = array_filter($vars['classes_array']);
   
-  // IE6 & IE7 stylesheets
+  // IE stylesheets
   drupal_add_css(path_to_theme() . '/css/ie6-fixes.css', array('weight' => CSS_THEME, 'browsers' => array('IE' => 'IE 6', '!IE' => FALSE), 'preprocess' => FALSE));
   drupal_add_css(path_to_theme() . '/css/ie7-fixes.css', array('weight' => CSS_THEME, 'browsers' => array('IE' => 'IE 7', '!IE' => FALSE), 'preprocess' => FALSE));
+  drupal_add_css(path_to_theme() . '/css/ie8-fixes.css', array('weight' => CSS_THEME, 'browsers' => array('IE' => 'IE 8', '!IE' => FALSE), 'preprocess' => FALSE));
 }
 
 
