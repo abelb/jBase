@@ -220,7 +220,7 @@
             <?php if ($content_region): ?>
               <div id="content">
                 <a name="main-content" id="main-content"></a>
-                <?php if ($tabs): ?>
+                <?php if ($tabs['#primary'] > 0): ?>
                   <div id="content-tabs" class="clear">
                     <?php print render($tabs); ?>
                   </div>
