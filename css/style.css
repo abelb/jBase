@@ -880,11 +880,18 @@ html.js #user-login li.openid-processed {
 /* Secondary menu
 -------------------------------------------------------------*/
 #secondary-menu {
+  float: right;
+}
+
+#secondary-menu ul.links {
+  margin: 0;
+  overflow: hidden;
 }
 
 #secondary-menu ul.links li {
   background-image: none;
-  padding: 0 8px 0 0;
+  float: left;
+  padding: 0 10px 0 0;
 }
 
 
@@ -979,7 +986,6 @@ ul.secondary li {
 #content-tabs {
   background-color: transparent;
   margin: 10px 0;
-  overflow: hidden;
   padding: 0;
 }
 

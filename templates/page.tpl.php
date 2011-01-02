@@ -70,12 +70,19 @@
  */
 ?>
 
-<!-- TODO: Secondary menu -->
-
   <div id="page">
     
-    <?php if ($page['banner']): ?>
+    <?php if ($page['banner'] || $secondary_menu): ?>
       <div id="banner" class="clearfix">
+        
+        <?php if ($secondary_menu): ?>
+          <div id="secondary-menu">
+            <?php print theme('links__system_secondary_menu', array(
+              'links' => $secondary_menu,
+            )); ?>
+          </div><!-- /secondary_menu -->
+        <?php endif; ?>
+        
         <?php print render($page['banner']); ?>
       </div><!-- /banner -->
     <?php endif; ?>
@@ -221,15 +228,15 @@
               <div id="content">
                 <a name="main-content" id="main-content"></a>
                 <?php if ($tabs['#primary'] > 0): ?>
-                  <div id="content-tabs" class="clear">
+                  <div id="content-tabs" class="clearfix">
                     <?php print render($tabs); ?>
                   </div>
                 <?php endif; ?>
                     
                 <?php if ($title || $page['content']): ?>
-                  <div id="content-inner" class="clear">
+                  <div id="content-inner">
                       
-                    <?php print render($title_prefix); ?>							
+                    <?php print render($title_prefix); ?>
                     <?php if ($title): ?>
                       <h1 id="page-title"><?php print $title; ?></h1>
                     <?php endif; ?>
@@ -240,16 +247,13 @@
                     <?php endif; ?>
                         
                     <?php if ($page['content']): ?>
-                      <div id="content-content">
-                        <?php print render($page['content']); ?>
-                      </div><!-- /content-content -->
+                      <?php print render($page['content']); ?>
                     <?php endif; ?>
                       
                   </div><!-- /content-inner -->
                 <?php endif; ?>
               </div><!-- /content -->
             <?php endif; ?>
-              
           </div><!-- /content-wrapper -->
         <?php endif; ?>
 
