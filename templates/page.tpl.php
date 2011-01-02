@@ -167,8 +167,6 @@
           <?php print render($page['header_bottom']); ?>
         <?php endif; ?>
           
-        <?php print render($page['highlight']); ?>
-          
       </div><!-- /header-bottom -->
     <?php endif; ?>
 
@@ -196,7 +194,7 @@
       </div><!-- /preface-wrapper -->
     <?php endif; ?>
 
-    <?php $content_top_region = $page['help'] || $messages; ?>
+    <?php $content_top_region = $page['help'] || $messages || $page['highlight']; ?>
     <?php $content_region = $tabs || $title || $page['content']; ?>
     <?php if ($content_top_region || $content_region || $page['content_bottom'] || $page['sidebar_second']): ?>
       <div id="main-wrapper" class="clearfix">
@@ -219,6 +217,12 @@
                     
                 <?php if ($messages): ?>
                   <?php print $messages; ?>
+                <?php endif; ?>
+                
+                <?php if ($page['highlight']): ?>
+                  <div id="highlighted">
+                    <?php print render($page['highlight']); ?>
+                  </div>
                 <?php endif; ?>
                 
               </div><!-- /content-top -->
