@@ -428,11 +428,14 @@ div.content th img {
 #content-top {
 }
 
-#content-top #mission {
+#content-top #highlighted {
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 #content {
-  margin: 0;               /* default spacing between content regions */
+  margin: 0;
 }
 
 #content-inner {
@@ -598,7 +601,7 @@ div.node .links a {
 }  
 
 .submitted,
-.terms {                                      /* styling for byline and tags */
+.terms {
   font-size: 0.9em;
 }
 
@@ -650,7 +653,7 @@ div.node .comment_forbidden a {
   padding: 10px;
 }
 
-/* taxonomy */
+/* taxonomy -- TODO  */
 .vocab-name {
   font-weight: bold;
 }
@@ -673,35 +676,6 @@ div.node .comment_forbidden a {
 .terms ul.taxonomy li.vocab-term {
   background-image: none;
   padding: 0 6px 0 0;
-}
-
-
-/* Blockquotes
--------------------------------------------------------------- */
-.content blockquote p {
-  font-style: italic;
-  margin: 0;
-  padding: 8px 20px;
-}
-
-blockquote {
-  background: url('../images/close-quote.gif') no-repeat right bottom;
-  color: #5A6A78;
-  margin: 10px 0;
-}
-
-blockquote p:first-child {
-  background: url('../images/open-quote.gif') no-repeat left top;
-  padding: 0 0 0 20px;
-}
-
-blockquote * > :first-child {
-  background: transparent;
-  padding: 0;
-}
-
-blockquote a:link {
-  text-decoration: underline;
 }
 
 
@@ -772,32 +746,8 @@ div.block #user-login-form {
 }
 
 
-/* Block editing - configure & edit menu links for blocks
--------------------------------------------------------------- */
-div.block.block-editing {
-  position: relative;
-}
-
-div.block.block-editing div.edit {
-  background-color: #fff;
-  border: 1px solid #eee;
-  display: none;
-  font-size: 9px;
-  padding: 0 2px;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 40;
-}
-
-div.block.block-editing:hover div.edit {
-  display: block;
-}
-
-
 /* User Login Block - Open ID
 -------------------------------------------------------------- */
-
 /* adjust openid link */
 /* note: display set in openid.js */
 html.js #user-login-form li.openid-processed, 
@@ -809,9 +759,38 @@ html.js #user-login li.openid-processed {
 }
 
 
+/* Blockquotes
+-------------------------------------------------------------- */
+.content blockquote p {
+  font-style: italic;
+  margin: 0;
+  padding: 8px 20px;
+}
+
+blockquote {
+  background: url('../images/close-quote.gif') no-repeat right bottom;
+  color: #5A6A78;
+  margin: 10px 0;
+}
+
+blockquote p:first-child {
+  background: url('../images/open-quote.gif') no-repeat left top;
+  padding: 0 0 0 20px;
+}
+
+blockquote * > :first-child {
+  background: transparent;
+  padding: 0;
+}
+
+blockquote a:link {
+  text-decoration: underline;
+}
+
+
 /* Primary Menu
 -------------------------------------------------------------- */
-#main-menu {                                   /* menu layout */
+#main-menu {
   display: block;
   padding: 0;
   position: relative;
@@ -821,7 +800,7 @@ html.js #user-login li.openid-processed {
   margin: 0;
 }
 
-#main-menu ul.menu li {                        /* top item layout */
+#main-menu ul.menu li {
   background-image: none;
   display: block;
   float: left;
@@ -973,6 +952,7 @@ div.region-help {
 div.region-help div.block-wrapper {
   margin: 0;
 }
+
 
 /* Tabs
 -------------------------------------------------------------------*/
@@ -1136,7 +1116,7 @@ textarea, select {
 }
 
 /* form-text styles */
-.form-text {                                      /* default styling for all text fields */
+.form-text {
 }
 
 input.form-text {
@@ -1224,23 +1204,6 @@ div.error, tr.error,
 span.form-required,
 span.marker {
   color: #8a1f11;
-}
-
-/* theme settings form field width limit */
-form#system-theme-settings select,
-form#system-theme-settings input.form-text {
-  max-width: 95%;
-}
-
-/* keep theme select form visible */
-#system-themes-form {
-  position: relative;
-  z-index: 1;
-}
-
-/* keep theme switcher visible */
-.form-item select#edit-theme {
-  max-width: none;
 }
 
 
@@ -1363,14 +1326,6 @@ ul.pager span.pager-ellipsis {
 }
 
 
-/* Footer message
--------------------------------------------------------------- */
-#footer-message {
-  margin-bottom: 30px;
-  overflow: hidden;
-}
-
-
 /* Admin page(s)
 -------------------------------------------------------------- */
 div.admin {
@@ -1404,12 +1359,6 @@ div.admin-panel .description {
 
 div.admin-dependencies,
 div.admin-required {
-}
-
-
-/* Maintenance
--------------------------------------------------------------- */
-.in-maintenance  {
 }
 
 
@@ -1508,96 +1457,6 @@ div.comment .picture {
   margin: 10px 0;
   padding: 0;
 }
-
-
-/* Forums
--------------------------------------------------------------- */
-#forum .description {
-  font-size: 0.9em;
-  margin: 0.5em;
-}
-
-#forum td.created, 
-#forum td.posts, 
-#forum td.topics, 
-#forum td.last-reply,
-#forum td.replies, 
-#forum td.pager {
-  white-space: nowrap;
-}
-
-#forum td.posts, 
-#forum td.topics, 
-#forum td.replies, 
-#forum td.pager {
-  text-align: center;
-}
-
-.forum-topic-navigation {
-  border-bottom: 1px solid #888;
-  border-top: 1px solid #888;
-  padding: 6px;
-  text-align: center;
-}
-
-.forum-topic-navigation .topic-previous {
-  float: left;
-  text-align: right;
-  width: 46%;
-}
-
-.forum-topic-navigation .topic-next {
-  float: right;
-  text-align: left;
-  width: 46%;
-}
-
-
-/* Panels
--------------------------------------------------------------- */
-
-
-/* Polls
--------------------------------------------------------------- */
-/* increase default font size and spacing of poll titles */
-.block-poll .poll div.title {
-  font-size: 1.2em;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-div.poll div.bar {                                      /* styles for poll ratings */
-  background-color: #DDD;
-}
-
-div.poll div.bar div.foreground {
-  background-color: #999;
-}
-
-
-/* Profiles
--------------------------------------------------------------- */
-.profile {
-  clear: none;
-  margin: 12px 0;
-}
-
-.profile h2.title {
-  border-bottom: 1px solid;
-  margin-top: 15px;
-}
-
-.profile dt {
-  float: left;
-  margin-bottom: -10px;
-  padding: 0 5px;
-  text-align: left;
-  width: 185px;
-}
-
-
-/* Search results
--------------------------------------------------------------- */
 
 
 /* Vertical tabs
