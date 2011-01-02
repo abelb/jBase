@@ -1,11 +1,14 @@
 <?php
 
-//******************************************************************************************
-// TODO: RENAME FUCNTION NAMES TO THE THEME'S NAME(s) WHEN CREATING NEW or SUB- THEMES!!!
-//******************************************************************************************
-
-
-function jBase_preprocess_html(&$vars) {
+/**
+ * Override or insert variables into the html template.
+ *
+ * @param $vars
+ *   An array of variables to pass to the theme template.
+ * @param $hook
+ *   The name of the template being rendered ("html" in this case.)
+ */
+function jbase_preprocess_html(&$vars, $hook) {
   // give <body> tag a unique id depending on PAGE PATH
   $path_alias = strtolower(preg_replace('/[^a-zA-Z0-9-]+/', '-', drupal_get_path_alias($_GET['q'])));
   if ($path_alias == 'node') {
@@ -51,7 +54,15 @@ function jBase_preprocess_html(&$vars) {
 }
 
 
-function jBase_preprocess_page(&$vars) {
+/**
+ * Override or insert variables into the page template.
+ *
+ * @param $vars
+ *   An array of variables to pass to the theme template.
+ * @param $hook
+ *   The name of the template being rendered ("page" in this case.)
+ */
+function jbase_preprocess_page(&$vars, $hook) {
   // Add preface, postscript, & footers classes with number of active sub-regions
   $region_list = array(
     'prefaces' => array('preface_first', 'preface_second', 'preface_third'), 
@@ -74,7 +85,15 @@ function jBase_preprocess_page(&$vars) {
 }
 
 
-function jbase_preprocess_node(&$vars) {
+/**
+ * Override or insert variables into the node templates.
+ *
+ * @param $vars
+ *   An array of variables to pass to the theme template.
+ * @param $hook
+ *   The name of the template being rendered ("node" in this case.)
+ */
+function jbase_preprocess_node(&$vars, $hook) {
   $vars['classes_array'][] = $vars['zebra'];
   if ($vars['view_mode'] == 'full') {
     $vars['classes_array'][] = 'full-node';
@@ -92,8 +111,15 @@ function jbase_preprocess_node(&$vars) {
 }
 
 
-
-function jBase_preprocess_block(&$vars) {
+/**
+ * Override or insert variables into the block templates.
+ *
+ * @param $vars
+ *   An array of variables to pass to the theme template.
+ * @param $hook
+ *   The name of the template being rendered ("block" in this case.)
+ */
+function jbase_preprocess_block(&$vars, $hook) {
   $block = $vars['block'];
   // First/last block position
   $vars['position'] = ($vars['block_id'] == 1) ? 'first' : '';
