@@ -76,8 +76,9 @@ function jBase_preprocess_page(&$vars) {
 
 function jbase_preprocess_node(&$vars) {
   $vars['classes_array'][] = $vars['zebra'];
-  $vars['classes_array'][] = drupal_html_class('node-type-' . $vars['type']);
-  $vars['classes_array'][] = ($vars['page']) ? 'full-node' : '';
+  if ($vars['view_mode'] == 'full') {
+    $vars['classes_array'][] = 'full-node';
+  }
   
   // Add node-type-page template suggestion
   if ($vars['page']) {
