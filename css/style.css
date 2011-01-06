@@ -622,9 +622,9 @@ div.meta div.submitted, div.meta div.terms {
   display: inline;
 }
 
-div.node div.picture {
-  float: right;
-  margin: 0 0 10px 0;
+div.node div.user-picture {
+  float: left;
+  margin: 0 20px 0 0;
 }
 
 div.node ul.links {
