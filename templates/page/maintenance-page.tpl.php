@@ -19,7 +19,7 @@
   <?php print $styles; ?>
   <?php print $scripts; ?>
 </head>
-  <body id="<?php print $body_id; ?>" class="<?php print $classes; ?>">
+  <body class="<?php print $classes; ?>">
     <div id="page" class="clearfix">
       
       <div id="header-wrapper" class="clearfix">
