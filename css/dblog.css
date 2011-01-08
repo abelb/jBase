@@ -2,7 +2,6 @@
 -------------------------------------------------------------- */
 tr.selected a,
 #admin-dblog tbody a,
-table.system-status-report a,
 table.update a,
 .update table.version a {
   color: #0D57A3;
@@ -11,23 +10,9 @@ table.update a,
 
 tr.selected a:hover,
 #admin-dblog tbody a:hover,
-table.system-status-report a:hover,
 table.update a:hover,
 .update table.version a:hover {
   text-decoration: underline;
-}
-  
-table.system-status-report th {
-  border-bottom: 1px solid #ccc;
-}
-
-tr.info {
-}
-
-tr.ok.even,
-tr.ok.odd {
-  background: #C2F5C2;
-  color: #000;
 }
 
 tr.dblog-notice,
@@ -36,16 +21,12 @@ tr.dblog-system {
   color: #000;
 }
 
-tr.warning.even,
-tr.warning.odd,
 tr.dblog-warning.even,
 tr.dblog-warning.odd {
   background: #FFFFDD;
   color: #000;
 }
 
-tr.error.even,
-tr.error.odd,
 tr.dblog-error.odd,
 tr.dblog-error.even {
  background: #FBDBDB;
