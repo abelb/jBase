@@ -115,9 +115,8 @@ function jbase_preprocess_node(&$vars) {
  * @see region.tpl.php
  */
 function jbase_preprocess_region(&$vars) {
-  // Sidebar regions get some extra classes and a common template suggestion.
+  // Sidebar region template suggestion.
   if (strpos($vars['region'], 'sidebar_') === 0) {
-    $vars['classes_array'][] = 'sidebar';
     $vars['theme_hook_suggestions'][] = 'region__sidebar';
     $vars['theme_hook_suggestions'][] = 'region__' . $vars['region'];
   }
