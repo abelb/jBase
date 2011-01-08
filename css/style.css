@@ -629,6 +629,7 @@ div.node div.user-picture {
 
 div.node ul.links {
   display: block;
+  margin: 0;
   text-align: right;
 }
 
@@ -687,7 +688,7 @@ div.block-region {
   color: #000;
   font-family: Tahoma,Verdana,Arial,Helvetica,sans-serif;
   font-size: 1.166em;
-  font-weight: 600;
+  font-weight: bold;
   margin-bottom: 4px;
   margin-top: 4px;
   padding: 3px;
@@ -700,10 +701,6 @@ div.block-region {
 
 div.block-wrapper {
   margin: 0 0 20px;
-}
-
-div.region-content div.block-wrapper {
-  margin: 0;
 }
 
 div.block .title {
@@ -731,10 +728,10 @@ div.block #user-login-form {
 
 /* Block Menus
 -------------------------------------------------------------- */
-.block ul.menu li a {								
+.block ul.menu li {
 }
 
-.block ul.menu li {
+.block ul.menu li a {								
 }
 
 .block ul.menu li a:link,
@@ -788,7 +785,7 @@ blockquote a:link {
 }
 
 
-/* Primary Menu
+/* Main Menu
 -------------------------------------------------------------- */
 #main-menu {
   display: block;
@@ -939,7 +936,7 @@ div.error {
   color: #B20000;
 }
 
-div.region-help {
+#block-system-help {
   background-color: #E4EEF8;
   border: 6px solid #57718A;
   color: #292929;
@@ -948,9 +945,6 @@ div.region-help {
   margin-bottom: 20px;
   overflow: hidden;
   padding: 10px 16px;
-}
-div.region-help div.block-wrapper {
-  margin: 0;
 }
 
 
