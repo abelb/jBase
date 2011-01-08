@@ -5,10 +5,8 @@
  *
  * @param $vars
  *   An array of variables to pass to the theme template.
- * @param $hook
- *   The name of the template being rendered ("html" in this case.)
  */
-function jbase_preprocess_html(&$vars, $hook) {
+function jbase_preprocess_html(&$vars) {
   // give <body> tag a unique id depending on PAGE PATH
   $path_alias = strtolower(preg_replace('/[^a-zA-Z0-9-]+/', '-', drupal_get_path_alias($_GET['q'])));
   if ($path_alias == 'node') {
@@ -59,10 +57,8 @@ function jbase_preprocess_html(&$vars, $hook) {
  *
  * @param $vars
  *   An array of variables to pass to the theme template.
- * @param $hook
- *   The name of the template being rendered ("page" in this case.)
  */
-function jbase_preprocess_page(&$vars, $hook) {
+function jbase_preprocess_page(&$vars) {
   // Add preface, postscript, & footers classes with number of active sub-regions
   $region_list = array(
     'prefaces' => array('preface_first', 'preface_second', 'preface_third'), 
@@ -90,13 +86,11 @@ function jbase_preprocess_page(&$vars, $hook) {
  *
  * @param $vars
  *   An array of variables to pass to the theme template.
- * @param $hook
- *   The name of the template being rendered ("node" in this case.)
  */
-function jbase_preprocess_node(&$vars, $hook) {
+function jbase_preprocess_node(&$vars) {
   $vars['classes_array'][] = $vars['zebra'];
   if ($vars['view_mode'] == 'full') {
-    $vars['classes_array'][] = 'full-node';
+    $vars['classes_array'][] = 'node-full';
   }
   
   // Add node-type-page template suggestion
@@ -112,14 +106,31 @@ function jbase_preprocess_node(&$vars, $hook) {
 
 
 /**
+ * Preprocess variables for region.tpl.php
+ *
+ * Prepare the values passed to the theme_region function to be passed into a
+ * pluggable template engine. Uses the region name to generate a template file
+ * suggestions. If none are found, the default region.tpl.php is used.
+ *
+ * @see region.tpl.php
+ */
+function jbase_preprocess_region(&$vars) {
+  // Sidebar regions get some extra classes and a common template suggestion.
+  if (strpos($vars['region'], 'sidebar_') === 0) {
+    $vars['classes_array'][] = 'sidebar';
+    $vars['theme_hook_suggestions'][] = 'region__sidebar';
+    $vars['theme_hook_suggestions'][] = 'region__' . $vars['region'];
+  }
+}
+
+
+/**
  * Override or insert variables into the block templates.
  *
  * @param $vars
  *   An array of variables to pass to the theme template.
- * @param $hook
- *   The name of the template being rendered ("block" in this case.)
  */
-function jbase_preprocess_block(&$vars, $hook) {
+function jbase_preprocess_block(&$vars) {
   $block = $vars['block'];
   // First/last block position
   $vars['position'] = ($vars['block_id'] == 1) ? 'first' : '';
