@@ -50,8 +50,8 @@
  * @see template_process()
  */
 ?>
-<div class="block-wrapper <?php print $block_zebra; ?>  <?php print $position; ?>">
-  <div id="block-<?php print $block->module . '-' . $block->delta; ?>" class="<?php print $classes; ?>"<?php print $attributes; ?>>
+<div id="block-<?php print $block->module .'-'. $block->delta; ?>" class="block-wrapper <?php print $block_zebra; ?>  <?php print $position; ?>">
+  <div class="<?php print $classes; ?>"<?php print $attributes; ?>>
     <div class="block-inner">
       <?php print render($title_prefix); ?>
       <?php if (!empty($block->subject)): ?>
