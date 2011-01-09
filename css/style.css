@@ -580,8 +580,7 @@ div.node .terms {
 }
 
 div.node ul.links li,
-div.node ul.inline li,
-div.node .links {
+div.node ul.inline li {
   padding-right: 6px;
 }
 
