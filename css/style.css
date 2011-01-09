@@ -441,13 +441,6 @@ div.content th img {
 #content-inner {
 }
 
-#content-bottom {
-}
-
-#node-bottom {
-  margin: 30px 0 0 0;
-}
-
 
 /* Postscript Regions
 -------------------------------------------------------------- */
@@ -577,48 +570,48 @@ body.layout-first-main-second #sidebar-second {
 
 /* Nodes
 -------------------------------------------------------------- */
-#main {
-}  
-
 div.node {
   margin: 0 0 20px 0;
 }
 
-div.node ul.links li,
-div.node ul.inline li,
-div.node .links a {
-  padding-right: 14px;
-}
-
-div.node ul.links li.last a {
-  padding-right: 0;
-}
-
-div.node .read-more a,
-div.node .more-link a,
-div.node .links a {
-  font-size: 1em;
-}  
-
-.submitted,
-.terms {
+div.node .submitted,
+div.node .terms {
   font-size: 0.9em;
 }
 
-.submitted a:link,
-.submitted a:visited {
+div.node ul.links li,
+div.node ul.inline li,
+div.node .links {
+  padding-right: 6px;
 }
 
-.submitted a:visited,
-.submitted a:hover,
-.submitted a:active {
+div.node ul.links li.last {
+  padding-right: 0;
+}
+
+div.node li.node-readmore,
+div.node .more-link,
+div.node .links {
+  font-size: 1em;
+}
+
+div.node li.node-readmore {
+}
+
+div.node .submitted a:link,
+div.node .submitted a:visited {
+}
+
+div.node .submitted a:visited,
+div.node .submitted a:hover,
+div.node .submitted a:active {
 }
 
 div.node div.meta {
   margin-bottom: 10px;
 }
 
-div.meta div.submitted, div.meta div.terms {
+div.meta div.submitted {
   display: inline;
 }
 
@@ -629,8 +622,8 @@ div.node div.user-picture {
 
 div.node ul.links {
   display: block;
-  margin: 0;
-  text-align: right;
+  margin: 2px 0;
+  overflow: hidden;
 }
 
 div.node div.meta ul.links {
@@ -638,7 +631,18 @@ div.node div.meta ul.links {
   padding: 0 14px 0 0;
 }
 
-div.node .comment_forbidden a {
+/* taxonomy terms */
+div.node .terms {
+}
+
+div.node .terms h3.field-label {
+  float: left;
+  line-height: inherit;
+  margin: 0 6px 0 0;
+}
+
+div.node .comment_forbidden {
+  float: right;
   padding: 0;
 }
 
@@ -652,31 +656,6 @@ div.node .comment_forbidden a {
   background-color: #FFFFE8;
   border: 1px solid #E8E8CC;
   padding: 10px;
-}
-
-/* taxonomy -- TODO  */
-.vocab-name {
-  font-weight: bold;
-}
-
-.terms {
-  line-height: 130%;
-}
-
-.terms ul.taxonomy li {
-  background-image: none;
-  margin: 5px 0;
-  padding-left: 0;
-}
-
-.terms ul.taxonomy ul.vocab-list,
-.terms ul.taxonomy li.vocab-term {
-  display: inline;
-}
-
-.terms ul.taxonomy li.vocab-term {
-  background-image: none;
-  padding: 0 6px 0 0;
 }
 
 
