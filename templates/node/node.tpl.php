@@ -14,8 +14,9 @@
  *   calling format_date() with the desired parameters on the $created variable.
  * - $name: Themed username of node author output from theme_username().
  * - $node_url: Direct url of the current node.
- * - $terms: the themed list of taxonomy term links output from theme_links().
- * - $display_submitted: whether submission information should be displayed.
+ * - $display_submitted: Whether submission information should be displayed.
+ * - $submitted: Submission information created from $name and $date during
+ *   template_preprocess_node().
  * - $classes: String of classes that can be used to style contextually through
  *   CSS. It can be manipulated through the variable $classes_array from
  *   preprocess functions. The default values can be one or more of the
@@ -31,8 +32,6 @@
  *   - node-sticky: Nodes ordered above other non-sticky nodes in teaser
  *     listings.
  *   - node-unpublished: Unpublished nodes visible only to administrators.
- *   The following applies only to viewers who are registered users:
- *   - node-by-viewer: Node is authored by the user currently viewing the page.
  * - $title_prefix (array): An array containing additional output populated by
  *   modules, intended to be displayed in front of the main title tag that
  *   appears in the template.
@@ -87,22 +86,12 @@
     <h2<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h2>
   <?php endif; ?>
   <?php print render($title_suffix); ?>
-
-  <?php if ($display_submitted || !empty($content['links']['terms'])): ?>
-    <div class="meta">
-      <?php if ($display_submitted): ?>
-        <span class="submitted">
-          <?php
-            print t('Submitted by !username on !datetime',
-              array('!username' => $name, '!datetime' => $date));
-          ?>
-        </span>
-      <?php endif; ?>
-
-      <?php if (!empty($content['links']['terms'])): ?>
-        <div class="terms terms-inline"><?php print render($content['links']['terms']); ?></div>
-      <?php endif; ?>
-    </div><!-- /meta -->
+  
+  <?php if ($display_submitted): ?>
+    <div class="meta submitted">
+      <?php print $user_picture; ?>
+      <?php print $submitted; ?>
+    </div>
   <?php endif; ?>
 
   <div class="content"<?php print $content_attributes; ?>>
@@ -113,9 +102,7 @@
       print render($content);
     ?>
   </div>
-
-  <?php print render($content['links']); ?>
-
+  
   <?php print render($content['comments']); ?>
 
 </div> <!-- /node -->
