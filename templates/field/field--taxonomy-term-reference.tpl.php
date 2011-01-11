@@ -46,7 +46,7 @@
   <?php endif; ?>
   <ul class="links inline"<?php print $content_attributes; ?>>
     <?php foreach ($items as $key => $value): ?>
-      <li class="taxonomy-term-<?php print $key; ?>"<?php print $item_attributes[$key]; ?>>
+      <li class="taxonomy-term"<?php print $item_attributes[$key]; ?>>
         <?php print render($value); ?>
       </li>
   <?php endforeach; ?>
