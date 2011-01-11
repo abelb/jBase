@@ -576,7 +576,7 @@ div.node {
 
 div.node .submitted,
 div.node .terms {
-  font-size: 0.9em;
+  font-size: 12px;
 }
 
 div.node ul.links li,
@@ -591,7 +591,6 @@ div.node ul.links li.last {
 div.node li.node-readmore,
 div.node .more-link,
 div.node .links {
-  font-size: 1em;
 }
 
 div.node li.node-readmore {
@@ -636,6 +635,7 @@ div.node .terms {
 
 div.node .terms h3.field-label {
   float: left;
+  font-size: 12px;
   line-height: inherit;
   margin: 0 6px 0 0;
 }
