@@ -21,6 +21,13 @@ function jbase_preprocess_html(&$vars) {
     $vars['classes_array'][] = ($vars['node']) ? 'full-node' : '';
   }
   $vars['classes_array'][] = 'layout-'. (isset($vars['page']['sidebar_first']) ? 'first-main' : 'main') . (isset($vars['page']['sidebar_second']) ? '-second' : '');
+  if (isset($vars['page']['header_first']) || isset($vars['page']['header_second']) || isset($vars['page']['header_third'])) {
+    $header_regions = 'header';
+    $header_regions .= (isset($vars['page']['header_first'])) ? '-first' : '';
+    $header_regions .= (isset($vars['page']['header_second'])) ? '-second' : '';
+    $header_regions .= (isset($vars['page']['header_third'])) ? '-third' : '';
+    $vars['classes_array'][] = $header_regions;
+  }
   if (isset($vars['page']['preface_first']) || isset($vars['page']['preface_second']) || isset($vars['page']['preface_third'])) {
     $preface_regions = 'preface';
     $preface_regions .= (isset($vars['page']['preface_first'])) ? '-first' : '';
@@ -35,7 +42,7 @@ function jbase_preprocess_html(&$vars) {
     $postscript_regions .= (isset($vars['page']['postscript_third'])) ? '-third' : '';
     $vars['classes_array'][] = $postscript_regions;
   }
-  if (isset($vars['page']['footer_first'])  || isset($vars['page']['footer_second']) || isset($vars['page']['footer_third'])) {
+  if (isset($vars['page']['footer_first']) || isset($vars['page']['footer_second']) || isset($vars['page']['footer_third'])) {
     $footer_regions = 'footers';
     $footer_regions .= (isset($vars['page']['footer_first'])) ? '-first' : '';
     $footer_regions .= (isset($vars['page']['footer_second'])) ? '-second' : '';
