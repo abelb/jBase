@@ -17,9 +17,6 @@ function jbase_preprocess_html(&$vars) {
   }
   
   // Add to the array of body classes
-  if (isset($vars['node'])) {
-    $vars['classes_array'][] = ($vars['node']) ? 'full-node' : '';
-  }
   $vars['classes_array'][] = 'layout-'. (isset($vars['page']['sidebar_first']) ? 'first-main' : 'main') . (isset($vars['page']['sidebar_second']) ? '-second' : '');
   if (isset($vars['page']['header_first']) || isset($vars['page']['header_second']) || isset($vars['page']['header_third'])) {
     $header_regions = 'header';
