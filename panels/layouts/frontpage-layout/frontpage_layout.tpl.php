@@ -1,4 +1,4 @@
-<div id="front-layout">
+<div <?php if (!empty($css_id)) { print "id=\"$css_id\""; } ?> class="front-layout">
   
   <?php if ($content['top']): ?>
     <div class="top-container">
