@@ -1,4 +1,4 @@
-<div <?php if (!empty($css_id)) { print "id=\"$css_id\""; } ?> class="main-layout">
+<div <?php if (!empty($css_id)) { print "id=\"$css_id\""; } ?> class="panels-layout">
   
   <?php if ($content['top']): ?>
     <div class="top-container">
@@ -35,4 +35,4 @@
     </div>
   <?php endif; ?>
 
-</div><!-- /main-layout -->
+</div><!-- /panels-layout -->
