@@ -17,10 +17,6 @@ function jbase_preprocess_html(&$vars) {
   }
   
   // Add to the array of body classes
-  // Panels classes
-  $vars['classes_array'][] = (module_exists('panels') && (panels_get_current_page_display())) ? 'panels' : '';
-  $panels_display = panels_get_current_page_display();
-  $vars['classes_array'][] = 'panels-'. $panels_display->layout;
   // layout classes
   $vars['classes_array'][] = 'layout-'. (isset($vars['page']['sidebar_first']) ? 'first-main' : 'main') . (isset($vars['page']['sidebar_second']) ? '-second' : '');
   // headers classes
@@ -54,6 +50,12 @@ function jbase_preprocess_html(&$vars) {
     $footer_regions .= (isset($vars['page']['footer_second'])) ? '-second' : '';
     $footer_regions .= (isset($vars['page']['footer_third'])) ? '-third' : '';
     $vars['classes_array'][] = $footer_regions;
+  }
+  // Panels classes
+  $vars['classes_array'][] = (module_exists('panels') && (panels_get_current_page_display())) ? 'panels' : '';
+  if (module_exists('panels') && (panels_get_current_page_display())) {
+    $panels_display = panels_get_current_page_display();
+    $vars['classes_array'][] = 'panels-'. $panels_display->layout;
   }
   
   $vars['classes_array'] = array_filter($vars['classes_array']);
