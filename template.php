@@ -55,7 +55,7 @@ function jbase_preprocess_html(&$vars) {
   $vars['classes_array'][] = (module_exists('panels') && (panels_get_current_page_display())) ? 'panels' : '';
   if (module_exists('panels') && (panels_get_current_page_display())) {
     $panels_display = panels_get_current_page_display();
-    $vars['classes_array'][] = 'panels-'. $panels_display->layout;
+    $vars['classes_array'][] = 'panels-'. strtolower(preg_replace('/[^a-zA-Z0-9-]+/', '-', $panels_display->layout));
   }
   
   $vars['classes_array'] = array_filter($vars['classes_array']);
