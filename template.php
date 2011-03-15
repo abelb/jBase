@@ -17,7 +17,13 @@ function jbase_preprocess_html(&$vars) {
   }
   
   // Add to the array of body classes
+  // Panels classes
+  $vars['classes_array'][] = (module_exists('panels') && (panels_get_current_page_display())) ? 'panels' : '';
+  $panels_display = panels_get_current_page_display();
+  $vars['classes_array'][] = 'panels-'. $panels_display->layout;
+  // layout classes
   $vars['classes_array'][] = 'layout-'. (isset($vars['page']['sidebar_first']) ? 'first-main' : 'main') . (isset($vars['page']['sidebar_second']) ? '-second' : '');
+  // headers classes
   if (isset($vars['page']['header_first']) || isset($vars['page']['header_second']) || isset($vars['page']['header_third'])) {
     $header_regions = 'header';
     $header_regions .= (isset($vars['page']['header_first'])) ? '-first' : '';
@@ -25,6 +31,7 @@ function jbase_preprocess_html(&$vars) {
     $header_regions .= (isset($vars['page']['header_third'])) ? '-third' : '';
     $vars['classes_array'][] = $header_regions;
   }
+  // preface classes
   if (isset($vars['page']['preface_first']) || isset($vars['page']['preface_second']) || isset($vars['page']['preface_third'])) {
     $preface_regions = 'preface';
     $preface_regions .= (isset($vars['page']['preface_first'])) ? '-first' : '';
@@ -32,6 +39,7 @@ function jbase_preprocess_html(&$vars) {
     $preface_regions .= (isset($vars['page']['preface_third'])) ? '-third' : '';
     $vars['classes_array'][] = $preface_regions;
   }
+  // postscripts classes
   if (isset($vars['page']['postscript_first']) || isset($vars['page']['postscript_second']) || isset($vars['page']['postscript_third'])) {
     $postscript_regions = 'postscript';
     $postscript_regions .= (isset($vars['page']['postscript_first'])) ? '-first' : '';
@@ -39,6 +47,7 @@ function jbase_preprocess_html(&$vars) {
     $postscript_regions .= (isset($vars['page']['postscript_third'])) ? '-third' : '';
     $vars['classes_array'][] = $postscript_regions;
   }
+  // footers classes
   if (isset($vars['page']['footer_first']) || isset($vars['page']['footer_second']) || isset($vars['page']['footer_third'])) {
     $footer_regions = 'footers';
     $footer_regions .= (isset($vars['page']['footer_first'])) ? '-first' : '';
