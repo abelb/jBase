@@ -54,6 +54,10 @@ features[] = main_menu
 features[] = secondary_menu
 
 
+; Panels
+;plugins[panels][layouts] = panels/layouts
+
+
 ; Cufon
 ;scripts[] = type/cufon/cufon-yui.js
 ;scripts[] = type/cufon/FONT_font.js ;TODO: use Cufon font generator for font.js
