@@ -1,4 +1,4 @@
-<div id="<?php if (!empty($css_id)) { print $css_id; } ?>" class="main-layout">
+<div <?php if (!empty($css_id)) { print "id=\"$css_id\""; } ?> class="main-layout">
   
   <?php if ($content['top']): ?>
     <div class="top-container">
@@ -6,8 +6,8 @@
     </div><!-- /panel-top -->
   <?php endif; ?>
   
-  <?php $column_content = $content['left_first'] || $content['right_first'] || $content['left_seond'] || $content['right_second']; ?>
-  <?php if ($column_content): ?>
+  <?php $row_content = $content['left_first'] || $content['right_first'] || $content['left_seond'] || $content['right_second']; ?>
+  <?php if ($row_content): ?>
       
     <div class="container-row clearfix">
       <div class="left">
