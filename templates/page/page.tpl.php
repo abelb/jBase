@@ -196,7 +196,7 @@
 
     <?php $content_top_region = $page['help'] || $messages || $page['highlight']; ?>
     <?php $content_region = $tabs || $title || $page['content']; ?>
-    <?php if ($content_top_region || $content_region || $page['content_bottom'] || $page['sidebar_second']): ?>
+    <?php if ($content_top_region || $content_region || $page['sidebar_second']): ?>
       <div id="main-wrapper" class="clearfix">
           
         <?php if ($page['sidebar_first']): ?>
@@ -205,7 +205,7 @@
           </div><!-- /sidebar-first -->
         <?php endif; ?>
 
-        <?php if ($content_top_region || $content_region || $content_bottom): ?>
+        <?php if ($content_top_region || $content_region): ?>
           <div id="content-wrapper">
             
             <?php if ($content_top_region): ?>
