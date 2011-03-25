@@ -1,11 +1,12 @@
 name = jBase
 description = Base theme for custom projects
-version = 7x.0.01
+version = 7.x-1.x-dev
 core = 7.x
 engine = phptemplate
 
 
 ; Stylesheets
+;stylesheets[all][] = css/fonts.css
 stylesheets[all][] = css/style.css
 stylesheets[all][] = css/dblog.css
 stylesheets[print][] = css/print.css
@@ -48,7 +49,6 @@ features[] = name
 features[] = slogan
 features[] = node_user_picture
 features[] = comment_user_picture
-features[] = search
 features[] = favicon
 features[] = main_menu
 features[] = secondary_menu
