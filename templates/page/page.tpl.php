@@ -231,7 +231,7 @@
             <?php if ($content_region): ?>
               <div id="content">
                 <a name="main-content" id="main-content"></a>
-                <?php if ($tabs['#primary'] > 0): ?>
+                <?php if (!empty($tabs['#primary'])): ?>
                   <div id="content-tabs" class="clearfix">
                     <?php print render($tabs); ?>
                   </div>
