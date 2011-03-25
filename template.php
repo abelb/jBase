@@ -18,37 +18,37 @@ function jbase_preprocess_html(&$vars) {
   
   // Add to the array of body classes
   // layout classes
-  $vars['classes_array'][] = 'layout-'. (isset($vars['page']['sidebar_first']) ? 'first-main' : 'main') . (isset($vars['page']['sidebar_second']) ? '-second' : '');
+  $vars['classes_array'][] = 'layout-'. (!empty($vars['page']['sidebar_first']) ? 'first-main' : 'main') . (!empty($vars['page']['sidebar_second']) ? '-second' : '');
   // headers classes
-  if (isset($vars['page']['header_first']) || isset($vars['page']['header_second']) || isset($vars['page']['header_third'])) {
+  if (!empty($vars['page']['header_first']) || !empty($vars['page']['header_second']) || !empty($vars['page']['header_third'])) {
     $header_regions = 'header';
-    $header_regions .= (isset($vars['page']['header_first'])) ? '-first' : '';
-    $header_regions .= (isset($vars['page']['header_second'])) ? '-second' : '';
-    $header_regions .= (isset($vars['page']['header_third'])) ? '-third' : '';
+    $header_regions .= (!empty($vars['page']['header_first'])) ? '-first' : '';
+    $header_regions .= (!empty($vars['page']['header_second'])) ? '-second' : '';
+    $header_regions .= (!empty($vars['page']['header_third'])) ? '-third' : '';
     $vars['classes_array'][] = $header_regions;
   }
   // preface classes
-  if (isset($vars['page']['preface_first']) || isset($vars['page']['preface_second']) || isset($vars['page']['preface_third'])) {
+  if (!empty($vars['page']['preface_first']) || !empty($vars['page']['preface_second']) || !empty($vars['page']['preface_third'])) {
     $preface_regions = 'preface';
-    $preface_regions .= (isset($vars['page']['preface_first'])) ? '-first' : '';
-    $preface_regions .= (isset($vars['page']['preface_second'])) ? '-second' : '';
-    $preface_regions .= (isset($vars['page']['preface_third'])) ? '-third' : '';
+    $preface_regions .= (!empty($vars['page']['preface_first'])) ? '-first' : '';
+    $preface_regions .= (!empty($vars['page']['preface_second'])) ? '-second' : '';
+    $preface_regions .= (!empty($vars['page']['preface_third'])) ? '-third' : '';
     $vars['classes_array'][] = $preface_regions;
   }
   // postscripts classes
-  if (isset($vars['page']['postscript_first']) || isset($vars['page']['postscript_second']) || isset($vars['page']['postscript_third'])) {
+  if (!empty($vars['page']['postscript_first']) || !empty($vars['page']['postscript_second']) || !empty($vars['page']['postscript_third'])) {
     $postscript_regions = 'postscript';
-    $postscript_regions .= (isset($vars['page']['postscript_first'])) ? '-first' : '';
-    $postscript_regions .= (isset($vars['page']['postscript_second'])) ? '-second' : '';
-    $postscript_regions .= (isset($vars['page']['postscript_third'])) ? '-third' : '';
+    $postscript_regions .= (!empty($vars['page']['postscript_first'])) ? '-first' : '';
+    $postscript_regions .= (!empty($vars['page']['postscript_second'])) ? '-second' : '';
+    $postscript_regions .= (!empty($vars['page']['postscript_third'])) ? '-third' : '';
     $vars['classes_array'][] = $postscript_regions;
   }
   // footers classes
-  if (isset($vars['page']['footer_first']) || isset($vars['page']['footer_second']) || isset($vars['page']['footer_third'])) {
+  if (!empty($vars['page']['footer_first']) || !empty($vars['page']['footer_second']) || !empty($vars['page']['footer_third'])) {
     $footer_regions = 'footers';
-    $footer_regions .= (isset($vars['page']['footer_first'])) ? '-first' : '';
-    $footer_regions .= (isset($vars['page']['footer_second'])) ? '-second' : '';
-    $footer_regions .= (isset($vars['page']['footer_third'])) ? '-third' : '';
+    $footer_regions .= (!empty($vars['page']['footer_first'])) ? '-first' : '';
+    $footer_regions .= (!empty($vars['page']['footer_second'])) ? '-second' : '';
+    $footer_regions .= (!empty($vars['page']['footer_third'])) ? '-third' : '';
     $vars['classes_array'][] = $footer_regions;
   }
   // Panels classes
