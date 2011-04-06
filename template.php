@@ -7,13 +7,13 @@
  *   An array of variables to pass to the theme template.
  */
 function jbase_preprocess_html(&$vars) {
-  // give <body> tag a unique id depending on PAGE PATH
-  $path_alias = strtolower(preg_replace('/[^a-zA-Z0-9-]+/', '-', drupal_get_path_alias($_GET['q'])));
+  // give <body> tag a unique class depending on PATHs
+  $path_alias = strtolower(preg_replace('/[^a-zA-Z0-9-]+/', ' path-', drupal_get_path_alias($_GET['q'])));
   if ($path_alias == 'node') {
-    $vars['body_id'] = 'page-front';
+    $vars['classes_array'][] = '';
   }
   else {
-    $vars['body_id'] = 'page-'. $path_alias;
+    $vars['classes_array'][] = 'path-'. $path_alias;
   }
   
   // Add to the array of body classes
