@@ -42,7 +42,7 @@
     <?php print $styles; ?>
     <?php print $scripts; ?>
   </head>
-  <body id="<?php print $body_id; ?>" class="<?php print $classes; ?>"<?php print $attributes;?>>
+  <body class="<?php print $classes; ?>"<?php print $attributes;?>>
     <div id="skip">
       <a href="#main-content"><?php print t('Skip to Main Content'); ?></a>
     </div>
