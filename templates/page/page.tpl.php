@@ -309,13 +309,13 @@
         <?php endif; ?>
         
         <?php if ($page['footer_second']): ?>
-          <div id="footer-middle" class="column">
+          <div id="footer-second" class="column">
             <?php print render($page['footer_second']); ?>
           </div><!-- /footer-middle -->
         <?php endif; ?>
         
         <?php if ($page['footer_third']): ?>
-          <div id="footer-last" class="column">
+          <div id="footer-third" class="column">
             <?php print render($page['footer_third']); ?>
           </div><!-- /footer-last -->
         <?php endif; ?> 
